@@ -4,7 +4,7 @@ import Home from './containers/Home'
 
 function App() {
   return (
-    <Home></Home>
+    <Home/>
   );
 }
 
