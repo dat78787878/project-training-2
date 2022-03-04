@@ -1,11 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './containers/Home'
+import PieChart from './containers/PieChart/PieChart';
 
 function App() {
-  return (
-    <Home/>
-  );
+  return <PieChart />;
 }
 
 export default App;
