@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import { GET_PIE_DATA, GET_PIE_ERROR, GET_PIE_SUCCESS } from './types';
 
 const initState = {
@@ -7,6 +6,7 @@ const initState = {
   isError: false
 };
 const pieChartReducer = (state = initState, action) => {
+  const { data } = action.payload;
   switch (action.type) {
     case GET_PIE_DATA:
       return {
@@ -14,7 +14,6 @@ const pieChartReducer = (state = initState, action) => {
         isLoading: true
       };
     case GET_PIE_SUCCESS:
-      const { data } = action.payload;
       return {
         ...state,
         pieData: { ...state.pieData, ...data },

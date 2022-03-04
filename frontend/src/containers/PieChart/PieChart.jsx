@@ -8,9 +8,7 @@ import { Chart, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 Chart.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart = () => {
-  const pieData = useSelector((state) => state.pieChart.pieData);
-  const isLoading = useSelector((state) => state.pieChart.isLoading);
-  const isError = useSelector((state) => state.pieChart.isError);
+  const { pieData, isLoading, isError } = useSelector((state) => state.pieChart);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData());
