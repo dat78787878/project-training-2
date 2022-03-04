@@ -1,23 +1,23 @@
-import { GET_PIE_DATA, GET_PIE_ERROR, GET_PIE_SUCCESS } from "./type";
+import { GET_PIE_DATA, GET_PIE_ERROR, GET_PIE_SUCCESS } from './types';
 
 const getData = (payload) => {
   return {
     type: GET_PIE_DATA,
-    payload,
+    payload
   };
 };
 
 const getDataSuccess = (payload) => {
   return {
     type: GET_PIE_SUCCESS,
-    payload,
+    payload
   };
 };
 
 const getDataError = (payload) => {
   return {
     type: GET_PIE_ERROR,
-    payload,
+    payload
   };
 };
 export { getData, getDataSuccess, getDataError };

@@ -1,11 +1,7 @@
-import PieChart from "./containers/PieChart/PieChart"
-
-
+import PieChart from './containers/PieChart/PieChart';
 
 function App() {
-  return (
-    <PieChart/>
-  );
+  return <PieChart />;
 }
 
 export default App;

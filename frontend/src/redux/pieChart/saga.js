@@ -1,7 +1,7 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { getDataSuccess, getDataError } from "./actions";
-import { getPieData } from "./api";
+import { getDataSuccess, getDataError } from './actions';
+import { getPieData } from './api';
 
 function* getPieChart() {
   try {
@@ -13,6 +13,6 @@ function* getPieChart() {
 }
 
 function* pieChartSaga() {
-  yield takeLatest("GET_PIE_DATA", getPieChart);
+  yield takeLatest('GET_PIE_DATA', getPieChart);
 }
 export default pieChartSaga;
