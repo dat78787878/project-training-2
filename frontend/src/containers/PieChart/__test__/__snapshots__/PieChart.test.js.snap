@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChart Component check loading 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <span
+      class="css-113v409"
+    >
+      <span
+        class="css-e1cvz7"
+      />
+      <span
+        class="css-1p1b5e4"
+      />
+      <span
+        class="css-5j85ug"
+      />
+      <span
+        class="css-1cna3gb"
+      />
+      <span
+        class="css-e4u31e"
+      />
+      <span
+        class="css-30u7o4"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`PieChart Component error task 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <div
+      class="error"
+    >
+      Error
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PieChart Component success task 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <canvas
+      height="150"
+      role="img"
+      width="300"
+    />
+  </div>
+</div>
+`;

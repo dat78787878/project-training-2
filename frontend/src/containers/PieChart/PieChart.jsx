@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { getData } from '../../redux/pieChart/actions';
 import Error from '../../components/Error/Error';
 import { Chart, ArcElement, Tooltip, Legend, Title } from 'chart.js';
+import { PacmanLoader } from 'react-spinners';
 Chart.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart = () => {
@@ -52,6 +53,7 @@ const PieChart = () => {
 
   return (
     <div className="pieChart">
+      {isLoading && <PacmanLoader size={25} margin={2} />}
       {isError && <Error />}
       {!isError && !isLoading && <Doughnut data={data} options={options} />}
     </div>
