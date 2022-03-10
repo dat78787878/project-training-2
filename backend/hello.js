@@ -1,16 +1,17 @@
 const http = require("http");
 const host = "localhost";
 const port = 8000;
+const _ = require("lodash");
 
 const pieChart = JSON.stringify({ iOS: 40, android: 60 });
 const rankingChart = JSON.stringify([
-  { key: "Day 1", value: 12 },
-  { key: "Day 2", value: 5 },
-  { key: "Day 3", value: 5 },
-  { key: "Day 4", value: 4 },
-  { key: "Day 5", value: 4 },
-  { key: "Day 6", value: 4 },
-  { key: "Day 7", value: 4 },
+  { key: "Day 1", value: _.random(0, 20) },
+  { key: "Day 2", value: _.random(0, 20) },
+  { key: "Day 3", value: _.random(0, 20) },
+  { key: "Day 4", value: _.random(0, 20) },
+  { key: "Day 5", value: _.random(0, 20) },
+  { key: "Day 6", value: _.random(0, 20) },
+  { key: "Day 7", value: _.random(0, 20) },
 ]);
 
 const requestListener = function (req, res) {

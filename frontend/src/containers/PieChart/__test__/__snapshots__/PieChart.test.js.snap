@@ -5,28 +5,21 @@ exports[`PieChart Component check loading 1`] = `
   <div
     class="pieChart"
   >
-    <span
-      class="css-113v409"
+    <div
+      class="loading"
     >
       <span
-        class="css-e1cvz7"
-      />
-      <span
-        class="css-1p1b5e4"
-      />
-      <span
-        class="css-5j85ug"
-      />
-      <span
-        class="css-1cna3gb"
-      />
-      <span
-        class="css-e4u31e"
-      />
-      <span
-        class="css-30u7o4"
-      />
-    </span>
+        class="css-1n5ab60"
+      >
+        <span
+          class="css-hajlmr"
+        />
+        <span
+          class="css-vrt42o"
+        />
+      </span>
+      ;
+    </div>
   </div>
 </div>
 `;
@@ -40,6 +33,10 @@ exports[`PieChart Component error task 1`] = `
       class="error"
     >
       Error
+      <img
+        alt="not-found"
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+      />
     </div>
   </div>
 </div>

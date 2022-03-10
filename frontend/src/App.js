@@ -4,8 +4,8 @@ import RankingChart from './containers/RankingChart/RankingChart';
 function App() {
   return (
     <>
-      <PieChart />;
-      <RankingChart />;
+      <PieChart />
+      <RankingChart />
     </>
   );
 }

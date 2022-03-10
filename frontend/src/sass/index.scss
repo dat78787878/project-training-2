@@ -1,3 +1,4 @@
-@import './../components/Error/style.module.scss';
-@import './../containers/PieChart/pieChart';
-@import './../containers/rankingChart/rankingChart';
+@import '../components/Error/style.module.scss';
+@import '../components/Loading/style.module.scss';
+@import '../containers/PieChart/_pieChart.scss';
+@import '../containers/RankingChart/_rankingChart.scss';

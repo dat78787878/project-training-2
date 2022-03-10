@@ -5,8 +5,9 @@ import { useEffect } from 'react';
 import { getData } from '../../redux/rankingChart/actions';
 import Error from '../../components/Error/Error';
 import { Bar } from 'react-chartjs-2';
-import { RingLoader } from 'react-spinners';
-Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, Title);
+import Loading from '../../components/Loading/Loading';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, Title, ChartDataLabels);
 
 const RankingChart = () => {
   const { rankingData, isLoading, isError } = useSelector((state) => state.rankingChart);
@@ -54,6 +55,16 @@ const RankingChart = () => {
         padding: {
           bottom: 20
         }
+      },
+      datalabels: {
+        // This code is used to display data values
+        anchor: 'end',
+        align: 'center',
+        formatter: Math.round,
+        font: {
+          weight: 'bold',
+          size: 16
+        }
       }
     }
   };
@@ -70,11 +81,15 @@ const RankingChart = () => {
     ]
   };
 
+  const plugins = {
+    plugins: [ChartDataLabels]
+  };
+
   return (
     <div className="rankingChart">
-      {isLoading && <RingLoader size={60} />}
+      {isLoading && <Loading />}
       {isError && <Error />}
-      {!isError && !isLoading && <Bar data={data} options={options} />}
+      {!isError && !isLoading && <Bar data={data} options={options} plugins={plugins} />}
     </div>
   );
 };

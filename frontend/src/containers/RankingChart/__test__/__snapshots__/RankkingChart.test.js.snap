@@ -1,52 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RankingChart Component check load 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
-    <span
-      class="css-1n5ab60"
-    >
-      <span
-        class="css-hajlmr"
-      />
-      <span
-        class="css-vrt42o"
-      />
-    </span>
-  </div>
-</div>
-`;
-
 exports[`RankingChart Component check loading 1`] = `
 <div>
   <div
     class="rankingChart"
   >
-    <span
-      class="css-1n5ab60"
-    >
-      <span
-        class="css-hajlmr"
-      />
-      <span
-        class="css-vrt42o"
-      />
-    </span>
-  </div>
-</div>
-`;
-
-exports[`RankingChart Component error 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
     <div
-      class="error"
+      class="loading"
     >
-      Error
+      <span
+        class="css-1n5ab60"
+      >
+        <span
+          class="css-hajlmr"
+        />
+        <span
+          class="css-vrt42o"
+        />
+      </span>
+      ;
     </div>
   </div>
 </div>
@@ -61,68 +33,11 @@ exports[`RankingChart Component error task 1`] = `
       class="error"
     >
       Error
-    </div>
-  </div>
-</div>
-`;
-
-exports[`RankingChart Component get data error 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
-    <div
-      class="error"
-    >
-      Error
-    </div>
-  </div>
-</div>
-`;
-
-exports[`RankingChart Component get data success 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
-    <canvas
-      height="150"
-      role="img"
-      width="300"
-    />
-  </div>
-</div>
-`;
-
-exports[`RankingChart Component isLoading data 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
-    <span
-      class="css-1n5ab60"
-    >
-      <span
-        class="css-hajlmr"
+      <img
+        alt="not-found"
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
       />
-      <span
-        class="css-vrt42o"
-      />
-    </span>
-  </div>
-</div>
-`;
-
-exports[`RankingChart Component success 1`] = `
-<div>
-  <div
-    class="rankingChart"
-  >
-    <canvas
-      height="150"
-      role="img"
-      width="300"
-    />
+    </div>
   </div>
 </div>
 `;
