@@ -32,7 +32,7 @@ describe('PieChart Component', () => {
     };
     const { container } = render(<PieChart />);
     expect(container).toMatchSnapshot();
-    expect(container.querySelector('span'));
+    expect(container.querySelector('div').firstChild.className).toEqual('loading');
   });
   it('success task', () => {
     mockAppState = {

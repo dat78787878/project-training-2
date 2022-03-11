@@ -8,17 +8,9 @@ exports[`RankingChart Component check loading 1`] = `
     <div
       class="loading"
     >
-      <span
-        class="css-1n5ab60"
-      >
-        <span
-          class="css-hajlmr"
-        />
-        <span
-          class="css-vrt42o"
-        />
-      </span>
-      ;
+      <div
+        class="spinner-border text-success"
+      />
     </div>
   </div>
 </div>

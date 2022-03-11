@@ -32,7 +32,7 @@ describe('RankingChart Component', () => {
     };
     const { container } = render(<RankingChart />);
     expect(container).toMatchSnapshot();
-    expect(container.querySelector('span'));
+    expect(container.querySelector('div').firstChild.className).toEqual('loading');
   });
   it('success task', () => {
     mockAppState = {

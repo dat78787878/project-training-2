@@ -1,10 +1,9 @@
 import React from 'react';
-import { RingLoader } from 'react-spinners';
-
+import Spinner from 'react-bootstrap/Spinner';
 const Loading = () => {
   return (
     <div className="loading">
-      <RingLoader size={60} />;
+      <Spinner animation="border" variant="success" />
     </div>
   );
 };
