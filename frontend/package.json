@@ -62,28 +62,21 @@
     "prettier": "^2.5.1"
   },
   "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
     "collectCoverageFrom": [
-      "**/*.js"
+      "src/**/*.jsx"
     ],
     "coveragePathIgnorePatterns": [
-      "node_modules",
-      "coverage",
-      "<rootDir>/src/redux",
-      "<rootDir>/src/App.js",
-      "<rootDir>/src/index.js",
-      "<rootDir>/src/reportWebVitals.js",
-      "<rootDir>/src/setupTests.js"
-    ]
+      "/node_modules/",
+      "/*/index.js",
+      "src/serviceWorker.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 92.9,
+        "branches": 89.5,
+        "lines": 93.3,
+        "functions": 91.9
+      }
+    }
   }
 }
