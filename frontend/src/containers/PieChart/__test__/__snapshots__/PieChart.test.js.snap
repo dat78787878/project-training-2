@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChart Component check loading 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <div
+      class="loading"
+    >
+      <div
+        class="spinner-border text-success"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PieChart Component error task 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <div
+      class="error"
+    >
+      Error
+      <img
+        alt="not-found"
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PieChart Component success task 1`] = `
+<div>
+  <div
+    class="pieChart"
+  >
+    <canvas
+      height="150"
+      role="img"
+      width="300"
+    />
+  </div>
+</div>
+`;

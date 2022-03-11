@@ -1,27 +1,27 @@
-import { GET_PIE_DATA, GET_PIE_ERROR, GET_PIE_SUCCESS } from './types';
+import { GET_RANKING_DATA, GET_RANKING_SUCCESS, GET_RANKING_ERROR } from './types';
 
 const initState = {
-  pieData: {},
+  rankingData: [],
   isLoading: false,
   isError: false
 };
-const pieChartReducer = (state = initState, action) => {
+const rankingChartReducer = (state = initState, action) => {
   switch (action.type) {
-    case GET_PIE_DATA:
+    case GET_RANKING_DATA:
       return {
         ...state,
         isLoading: true
       };
-    case GET_PIE_SUCCESS: {
+    case GET_RANKING_SUCCESS: {
       const { data } = action.payload;
       return {
         ...state,
-        pieData: { ...state.pieData, ...data },
+        rankingData: [...data],
         isLoading: false,
         isError: false
       };
     }
-    case GET_PIE_ERROR:
+    case GET_RANKING_ERROR:
       return {
         ...state,
         isError: true,
@@ -33,4 +33,4 @@ const pieChartReducer = (state = initState, action) => {
       };
   }
 };
-export default pieChartReducer;
+export default rankingChartReducer;

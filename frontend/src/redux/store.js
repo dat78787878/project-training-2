@@ -1,12 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
-import pieChartReducer from './pieChart/reducer';
-import saga from './pieChart/saga';
+import saga from './saga';
 import createSagaMiddleware from '@redux-saga/core';
-import { combineReducers } from 'redux';
-
-const reducer = combineReducers({
-  pieChart: pieChartReducer
-});
+import reducer from './reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
