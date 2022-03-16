@@ -1,0 +1,22 @@
+.heatChart {
+  width: 65%;
+  background-color: #ffffff;
+  margin-left: 20px;
+  &-line{
+    height:8px;
+    background-image: linear-gradient(to right, #ffffff, #b700ff);
+    width: 94%;
+  }
+  &-number{
+    width: 94%;
+    padding-left: 13px;
+  }
+  &-time{
+    width:50%;
+    padding-left: 13px;
+  }
+}
+.barChart {
+  padding-top: 38px;
+  padding-left: 10px;
+}

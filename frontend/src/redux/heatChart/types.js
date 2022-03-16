@@ -1,0 +1,3 @@
+export const GET_HEAT_DATA = 'GET_HEAT_DATA';
+export const GET_HEAT_SUCCESS = 'GET_HEAT_SUCCESS';
+export const GET_HEAT_ERROR = 'GET_HEAT_ERROR';

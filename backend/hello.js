@@ -13,11 +13,32 @@ const rankingChart = JSON.stringify([
   { key: "Day 6", value: _.random(0, 20) },
   { key: "Day 7", value: _.random(0, 20) },
 ]);
+const heatChart = _.map(
+  [
+    "Sunday",
+    "Saturday",
+    "Friday",
+    "Thursday",
+    "Wednesday",
+    "Tuesday",
+    "Monday",
+  ],
+  (day) => ({
+    name: day,
+    data: _.map(_.range(0, 24), (time) => ({
+      x: `${time}`,
+      y: _.random(0, 2) !== 2 ? _.random(0, 30) : _.random(0, 50),
+    })),
+  })
+);
 
 const requestListener = function (req, res) {
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   switch (req.url) {
     case "/hello":
       res.writeHead(200);
@@ -36,6 +57,13 @@ const requestListener = function (req, res) {
         res.writeHead(200);
         res.end(rankingChart);
       }, 5000);
+      break;
+      
+    case "/heat":
+      setTimeout(() => {
+        res.writeHead(200);
+        res.end(JSON.stringify(heatChart));
+      }, 1000);
       break;
   }
 };
