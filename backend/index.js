@@ -63,7 +63,7 @@ const requestListener = function (req, res) {
       setTimeout(() => {
         res.writeHead(200);
         res.end(JSON.stringify(heatChart));
-      }, 1000);
+      }, 5000);
       break;
   }
 };

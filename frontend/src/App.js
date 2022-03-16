@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
   return (
     <div className="section">
-      <PieChart />
+      <div className="d-flex">
+        <PieChart />
+      </div>
       <div className="d-flex pt-3">
         <RankingChart />
         <HeatChart />
