@@ -2,6 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { getHeatData } from './api';
 import { getDataSuccess, getDataError } from './actions';
 
+const GET_HEAT_DATA = 'GET_HEAT_DATA';
 function* getHeatChart() {
   try {
     const data = yield call(getHeatData);
@@ -12,7 +13,7 @@ function* getHeatChart() {
 }
 
 function* heatChartSaga() {
-  yield takeLatest('GET_HEAT_DATA', getHeatChart);
+  yield takeLatest(GET_HEAT_DATA, getHeatChart);
 }
 
 export default heatChartSaga;
