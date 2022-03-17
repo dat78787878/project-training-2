@@ -3,9 +3,9 @@ import { getHeatData } from './api';
 import { getDataSuccess, getDataError } from './actions';
 
 const GET_HEAT_DATA = 'GET_HEAT_DATA';
-function* getHeatChart() {
+function* getHeatChart(action) {
   try {
-    const data = yield call(getHeatData);
+    const data = yield call(getHeatData, ...action.payload);
     yield put(getDataSuccess(data));
   } catch (e) {
     yield put(getDataError());

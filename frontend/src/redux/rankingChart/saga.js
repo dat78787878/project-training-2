@@ -3,9 +3,9 @@ import { getRankingData } from './api';
 import { getDataSuccess, getDataError } from './actions';
 
 const GET_RANKING_DATA = 'GET_RANKING_DATA';
-function* getRanking() {
+function* getRanking(action) {
   try {
-    const data = yield call(getRankingData);
+    const data = yield call(getRankingData, ...action.payload);
     yield put(getDataSuccess(data));
   } catch (e) {
     yield put(getDataError());

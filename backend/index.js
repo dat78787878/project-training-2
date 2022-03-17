@@ -2,8 +2,11 @@ const http = require("http");
 const host = "localhost";
 const port = 8000;
 const _ = require("lodash");
-
-const pieChart = JSON.stringify({ iOS: 40, android: 60 });
+var url = require("url");
+const pieChart = JSON.stringify({
+  iOS: _.random(0, 100),
+  android: _.random(0, 100),
+});
 const rankingChart = JSON.stringify([
   { key: "Day 1", value: _.random(0, 20) },
   { key: "Day 2", value: _.random(0, 20) },
@@ -34,36 +37,43 @@ const heatChart = _.map(
 
 const requestListener = function (req, res) {
   res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "GET,PUT,POST,DELETE");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  var params = url.parse(req.url, true).query;
+  var stringParams="";
+  if (params.fromDate !== undefined && params.toDate !== undefined) {
+    fromDate = params.fromDate.replaceAll("/", "%2F");
+    toDate = params.toDate.replaceAll("/", "%2F");
+    stringParams="?fromDate=" + fromDate + "&toDate=" + toDate
+  }
   switch (req.url) {
-    case "/hello":
+     case "/hello"+stringParams:
       res.writeHead(200);
       res.end("Hello every");
       break;
 
-    case "/device_summary":
+    case "/device_summary"+stringParams:
       setTimeout(() => {
         res.writeHead(200);
         res.end(pieChart);
-      }, 10000);
+      }, 1000);
       break;
 
-    case "/ranking":
+    case "/ranking"+stringParams:
       setTimeout(() => {
         res.writeHead(200);
         res.end(rankingChart);
-      }, 5000);
+      }, 1000);
       break;
-      
-    case "/heat":
+
+    case "/heat"+stringParams:
       setTimeout(() => {
         res.writeHead(200);
         res.end(JSON.stringify(heatChart));
-      }, 5000);
+      }, 1000);
       break;
   }
 };

@@ -4,9 +4,9 @@ import { getDataSuccess, getDataError } from './actions';
 import { getPieData } from './api';
 
 const GET_PIE_DATA = 'GET_PIE_DATA';
-function* getPieChart() {
+function* getPieChart(action) {
   try {
-    const data = yield call(getPieData);
+    const data = yield call(getPieData, ...action.payload);
     yield put(getDataSuccess(data));
   } catch (e) {
     yield put(getDataError());

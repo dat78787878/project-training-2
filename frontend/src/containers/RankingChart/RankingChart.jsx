@@ -11,11 +11,13 @@ Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, Title, C
 
 const RankingChart = () => {
   const { rankingData, isLoading, isError } = useSelector((state) => state.rankingChart);
+  const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData());
-  }, []);
+    console.log(fromDate, toDate);
+    dispatch(getData([fromDate, toDate]));
+  }, [fromDate, toDate]);
 
   const options = {
     indexAxis: 'y',
