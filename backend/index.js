@@ -3,37 +3,6 @@ const host = "localhost";
 const port = 8000;
 const _ = require("lodash");
 var url = require("url");
-const pieChart = JSON.stringify({
-  iOS: _.random(0, 100),
-  android: _.random(0, 100),
-});
-const rankingChart = JSON.stringify([
-  { key: "Day 1", value: _.random(0, 20) },
-  { key: "Day 2", value: _.random(0, 20) },
-  { key: "Day 3", value: _.random(0, 20) },
-  { key: "Day 4", value: _.random(0, 20) },
-  { key: "Day 5", value: _.random(0, 20) },
-  { key: "Day 6", value: _.random(0, 20) },
-  { key: "Day 7", value: _.random(0, 20) },
-]);
-const heatChart = _.map(
-  [
-    "Sunday",
-    "Saturday",
-    "Friday",
-    "Thursday",
-    "Wednesday",
-    "Tuesday",
-    "Monday",
-  ],
-  (day) => ({
-    name: day,
-    data: _.map(_.range(0, 24), (time) => ({
-      x: `${time}`,
-      y: _.random(0, 2) !== 2 ? _.random(0, 30) : _.random(0, 50),
-    })),
-  })
-);
 
 const requestListener = function (req, res) {
   res.setHeader("Content-Type", "application/json");
@@ -43,33 +12,64 @@ const requestListener = function (req, res) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   var params = url.parse(req.url, true).query;
-  var stringParams="";
+  var stringParams = "";
   if (params.fromDate !== undefined && params.toDate !== undefined) {
     fromDate = params.fromDate.replaceAll("/", "%2F");
     toDate = params.toDate.replaceAll("/", "%2F");
-    stringParams="?fromDate=" + fromDate + "&toDate=" + toDate
+    stringParams = "?fromDate=" + fromDate + "&toDate=" + toDate;
   }
   switch (req.url) {
-     case "/hello"+stringParams:
+    case "/hello" + stringParams:
       res.writeHead(200);
       res.end("Hello every");
       break;
 
-    case "/device_summary"+stringParams:
+    case "/device_summary" + stringParams:
+      const pieChart = JSON.stringify({
+        iOS: _.random(0, 100),
+        android: _.random(0, 100),
+      });
       setTimeout(() => {
         res.writeHead(200);
         res.end(pieChart);
       }, 1000);
       break;
 
-    case "/ranking"+stringParams:
+    case "/ranking" + stringParams:
+      const rankingChart = JSON.stringify([
+        { key: "Day 1", value: _.random(0, 20) },
+        { key: "Day 2", value: _.random(0, 20) },
+        { key: "Day 3", value: _.random(0, 20) },
+        { key: "Day 4", value: _.random(0, 20) },
+        { key: "Day 5", value: _.random(0, 20) },
+        { key: "Day 6", value: _.random(0, 20) },
+        { key: "Day 7", value: _.random(0, 20) },
+      ]);
       setTimeout(() => {
         res.writeHead(200);
         res.end(rankingChart);
       }, 1000);
       break;
 
-    case "/heat"+stringParams:
+    case "/heat" + stringParams:
+      const heatChart = _.map(
+        [
+          "Sunday",
+          "Saturday",
+          "Friday",
+          "Thursday",
+          "Wednesday",
+          "Tuesday",
+          "Monday",
+        ],
+        (day) => ({
+          name: day,
+          data: _.map(_.range(0, 24), (time) => ({
+            x: `${time}`,
+            y: _.random(0, 2) !== 2 ? _.random(0, 30) : _.random(0, 50),
+          })),
+        })
+      );
       setTimeout(() => {
         res.writeHead(200);
         res.end(JSON.stringify(heatChart));
