@@ -14,7 +14,6 @@ const PieChart = () => {
   const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(fromDate, toDate);
     dispatch(getData([fromDate, toDate]));
   }, [fromDate, toDate]);
 

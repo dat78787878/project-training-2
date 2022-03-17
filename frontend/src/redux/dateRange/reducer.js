@@ -7,11 +7,13 @@ const initState = {
 
 const dateReducer = (state = initState, action) => {
   switch (action.type) {
-    case GET_DATE_DATA:
+    case GET_DATE_DATA: {
+      const { fromDate, toDate } = action.payload;
       return {
-        fromDate: action.payload.fromDate,
-        toDate: action.payload.toDate
+        fromDate: fromDate,
+        toDate: toDate
       };
+    }
     default:
       return {
         ...state

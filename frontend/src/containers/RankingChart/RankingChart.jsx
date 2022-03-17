@@ -15,7 +15,6 @@ const RankingChart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(fromDate, toDate);
     dispatch(getData([fromDate, toDate]));
   }, [fromDate, toDate]);
 
