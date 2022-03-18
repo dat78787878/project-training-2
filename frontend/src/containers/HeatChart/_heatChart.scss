@@ -3,17 +3,17 @@
   background-color: #ffffff;
   margin-left: 20px;
   height: 400px;
-  &-line{
-    height:8px;
+  &-line {
+    height: 8px;
     background-image: linear-gradient(to right, #ffffff, #b700ff);
     width: 94%;
   }
-  &-number{
+  &-number {
     width: 94%;
     padding-left: 13px;
   }
-  &-time{
-    width:50%;
+  &-time {
+    width: 50%;
     padding-left: 13px;
   }
 }

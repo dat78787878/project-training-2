@@ -8,11 +8,12 @@ import Error from '../../components/Error/Error';
 
 const HeatChart = () => {
   const { heatData, isLoading, isError } = useSelector((state) => state.heatChart);
+  const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData());
-  }, []);
+    dispatch(getData([fromDate, toDate]));
+  }, [fromDate, toDate]);
 
   const dataBarChart = heatData.map((value) => {
     return value.data.reduce((sum, currentVal) => {

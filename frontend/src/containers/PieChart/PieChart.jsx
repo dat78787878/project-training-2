@@ -11,10 +11,11 @@ Chart.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart = () => {
   const { pieData, isLoading, isError } = useSelector((state) => state.pieChart);
+  const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getData());
-  }, []);
+    dispatch(getData([fromDate, toDate]));
+  }, [fromDate, toDate]);
 
   const options = {
     elements: {
