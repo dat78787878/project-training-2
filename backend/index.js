@@ -16,7 +16,8 @@ const requestListener = function (req, res) {
   if (params.fromDate !== undefined && params.toDate !== undefined) {
     // fromDate = params.fromDate.replaceAll("/", "%2F");
     // toDate = params.toDate.replaceAll("/", "%2F");
-    stringParams = "?fromDate=" + params.fromDate + "&toDate=" +  params.toDate;
+    const {fromDate, toDate} = params
+    stringParams = `?fromDate=${fromDate}&toDate=${toDate}`
   }
   switch (req.url) {
     case "/hello" + stringParams:
