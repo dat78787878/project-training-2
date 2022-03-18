@@ -19,8 +19,8 @@ const DateRange = () => {
   const handleDatesChange = ({ startDate, endDate }) => {
     setStartDate(startDate);
     setEndDate(endDate);
-    setStart(moment(endDate).format('YYYY-MM-DD'));
-    setEnd(moment(startDate).format('YYYY-MM-DD'));
+    setStart(moment(startDate).format('YYYY-MM-DD'));
+    setEnd(moment(endDate).format('YYYY-MM-DD'));
   };
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -52,7 +52,7 @@ const DateRange = () => {
       />
       <Link to={`?fromDate_=${start}&toDate_=${end}`}>
         <Button variant="success" onClick={handleClick} className="m-1">
-          Sister Mike
+          OKE
         </Button>
       </Link>
     </div>
