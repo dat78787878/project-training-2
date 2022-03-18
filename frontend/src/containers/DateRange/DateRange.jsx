@@ -13,10 +13,14 @@ const DateRange = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  const [start, setStart] = useState();
+  const [end, setEnd] = useState();
   const [focusedInput, setFocusedInput] = useState(null);
   const handleDatesChange = ({ startDate, endDate }) => {
     setStartDate(startDate);
     setEndDate(endDate);
+    setStart(moment(endDate).format('YYYY-MM-DD'));
+    setEnd(moment(startDate).format('YYYY-MM-DD'));
   };
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -26,8 +30,6 @@ const DateRange = () => {
   }, [window.location.search]);
 
   const handleClick = useCallback(() => {
-    const start = moment(startDate).format('DD/MM/YYYY');
-    const end = moment(endDate).format('DD/MM/YYYY');
     dispatch(
       getData({
         fromDate: start,
@@ -41,14 +43,16 @@ const DateRange = () => {
       <div className="dateRange-title">Range</div>
       <DateRangePicker
         startDate={startDate}
+        startDateId="start-date"
         endDate={endDate}
+        endDateId="end-date"
         onDatesChange={handleDatesChange}
         focusedInput={focusedInput}
         onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
       />
-      <Link to={`?fromDate_=${startDate}&toDate_=${endDate}`}>
+      <Link to={`?fromDate_=${start}&toDate_=${end}`}>
         <Button variant="success" onClick={handleClick} className="m-1">
-          Ấn vào đây đi chị Mike
+          Sister Mike
         </Button>
       </Link>
     </div>
