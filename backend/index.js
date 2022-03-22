@@ -14,11 +14,28 @@ const requestListener = function (req, res) {
   var params = url.parse(req.url, true).query;
   var stringParams = "";
   if (params.fromDate !== undefined && params.toDate !== undefined) {
-    // fromDate = params.fromDate.replaceAll("/", "%2F");
-    // toDate = params.toDate.replaceAll("/", "%2F");
-    const {fromDate, toDate} = params
-    stringParams = `?fromDate=${fromDate}&toDate=${toDate}`
+    const { fromDate, toDate } = params;
+    stringParams = "?";
+    stringParams = stringParams + `fromDate=${fromDate}&toDate=${toDate}`;
+    var flag = true;
   }
+  if (params["device_types[]"] !== undefined) {
+    var device_types = params["device_types[]"];
+    var add = "";
+    flag ? (add = "&") : (stringParams = "?");
+    if (Array.isArray(device_types)) {
+      for (i = 0; i < device_types.length; i++) {
+        add =
+          i < device_types.length - 1
+            ? add + "device_types[]=" + device_types[i] + "&"
+            : add + "device_types[]=" + device_types[i];
+      }
+    } else {
+      add = add + "device_types[]=" + device_types;
+    }
+    stringParams = stringParams + add;
+  }
+
   switch (req.url) {
     case "/hello" + stringParams:
       res.writeHead(200);
@@ -26,13 +43,22 @@ const requestListener = function (req, res) {
       break;
 
     case "/device_summary" + stringParams:
-      const pieChart = JSON.stringify({
-        iOS: _.random(0, 100),
-        android: _.random(0, 100),
-      });
+      const array = [
+        { x: "Android", y: _.random(0, 100) },
+        { x: "Windows", y: _.random(0, 100) },
+        { x: "iOS", y: _.random(0, 100) },
+        { x: "OsX", y: _.random(0, 100) },
+        { x: "Unknown", y: _.random(0, 100) },
+        { x: "Linux", y: _.random(0, 100) },
+      ];
+      const pieChart = device_types
+        ? array.map((val) => {
+            return device_types.includes(val.x) ? val : "";
+          })
+        : array;
       setTimeout(() => {
         res.writeHead(200);
-        res.end(pieChart);
+        res.end(JSON.stringify(pieChart.filter((val) => val !== "")));
       }, 1000);
       break;
 

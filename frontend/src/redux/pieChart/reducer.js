@@ -1,7 +1,7 @@
 import { GET_PIE_DATA, GET_PIE_ERROR, GET_PIE_SUCCESS } from './types';
 
 const initState = {
-  pieData: {},
+  pieData: [],
   isLoading: false,
   isError: false
 };
@@ -16,7 +16,7 @@ const pieChartReducer = (state = initState, action) => {
       const { data } = action.payload;
       return {
         ...state,
-        pieData: { ...state.pieData, ...data },
+        pieData: [...data],
         isLoading: false,
         isError: false
       };
