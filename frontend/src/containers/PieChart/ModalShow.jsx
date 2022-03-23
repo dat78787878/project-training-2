@@ -13,7 +13,7 @@ const ModalShow = () => {
   const [listDataModal, setListDataModal] = useState(listAllData);
   const [listDataCheck, setListDataCheck] = useState(pieData.map((val) => val.x));
   const [show, setShow] = useState(false);
-
+  const _ = require('lodash');
   const dispatch = useDispatch();
 
   const onClickLabel = (val) => {
@@ -28,8 +28,7 @@ const ModalShow = () => {
 
   const onHide = () => {
     const prevListDataCheck = pieData.map((val) => val.x);
-    const _ = require('lodash');
-    !_.isEqual(listDataCheck, prevListDataCheck)
+    _.difference(listDataCheck, prevListDataCheck)
       ? dispatch(getData([fromDate, toDate, listDataCheck]))
       : '';
     setShow(false);
