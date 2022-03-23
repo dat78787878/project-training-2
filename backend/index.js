@@ -17,25 +17,25 @@ app.get("/device_summary", (req, res) => {
     { x: "Unknown", y: fromDate && toDate ? _.random(0, 100) : 20 },
     { x: "Linux", y: fromDate && toDate ? _.random(0, 100) : 10 },
   ];
-  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+  if (!fromDate || !toDate) {
     res.status(404).send({
       status: 404,
       error: "Not found",
     });
-  } else {
-    !device_types || !device_types.length
-      ? setTimeout(() => {
-          res.send(pieChart);
-        }, 1000)
-      : setTimeout(() => {
-          res.send(
-            _.map(device_types, (os) => ({
-              x: os,
-              y: _.random(0, 100),
-            }))
-          );
-        }, 1000);
+    return;
   }
+  !device_types || !device_types.length
+    ? setTimeout(() => {
+        res.send(pieChart);
+      }, 1000)
+    : setTimeout(() => {
+        res.send(
+          _.map(device_types, (os) => ({
+            x: os,
+            y: _.random(0, 100),
+          }))
+        );
+      }, 1000);
 });
 
 app.get("/ranking", (req, res) => {
@@ -49,11 +49,12 @@ app.get("/ranking", (req, res) => {
     { key: "Day 6", value: fromDate && toDate ? _.random(0, 20) : 6 },
     { key: "Day 7", value: fromDate && toDate ? _.random(0, 20) : 7 },
   ];
-  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+  if (!fromDate || !toDate) {
     res.status(404).send({
       status: 404,
       error: "Not found",
     });
+    return;
   } else {
     setTimeout(() => {
       res.send(rankingChart);
@@ -81,11 +82,12 @@ app.get("/heat", (req, res) => {
       })),
     })
   );
-  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+  if (!fromDate || !toDate) {
     res.status(404).send({
       status: 404,
       error: "Not found",
     });
+    return;
   } else {
     setTimeout(() => {
       res.send(heatChart);
