@@ -8,8 +8,7 @@ const host = "localhost";
 app.use(cors());
 
 app.get("/device_summary", (req, res) => {
-  const { fromDate, toDate } = req.query;
-  const { device_types } = req.query;
+  const { fromDate, toDate, device_types } = req.query;
   const pieChart = [
     { x: "Android", y: fromDate && toDate ? _.random(0, 100) : 30 },
     { x: "Windows", y: fromDate && toDate ? _.random(0, 100) : 10 },
@@ -18,18 +17,25 @@ app.get("/device_summary", (req, res) => {
     { x: "Unknown", y: fromDate && toDate ? _.random(0, 100) : 20 },
     { x: "Linux", y: fromDate && toDate ? _.random(0, 100) : 10 },
   ];
-  device_types == undefined
-    ? setTimeout(() => {
-        res.send(pieChart);
-      }, 1000)
-    : setTimeout(() => {
-        res.send(
-          _.map(device_types, (os) => ({
-            x: os,
-            y: _.random(0, 100),
-          }))
-        );
-      }, 1000);
+  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+    res.status(404).send({
+      status: 404,
+      error: "Not found",
+    });
+  } else {
+    !device_types || !device_types.length
+      ? setTimeout(() => {
+          res.send(pieChart);
+        }, 1000)
+      : setTimeout(() => {
+          res.send(
+            _.map(device_types, (os) => ({
+              x: os,
+              y: _.random(0, 100),
+            }))
+          );
+        }, 1000);
+  }
 });
 
 app.get("/ranking", (req, res) => {
@@ -43,12 +49,20 @@ app.get("/ranking", (req, res) => {
     { key: "Day 6", value: fromDate && toDate ? _.random(0, 20) : 6 },
     { key: "Day 7", value: fromDate && toDate ? _.random(0, 20) : 7 },
   ];
-  setTimeout(() => {
-    res.send(rankingChart);
-  }, 1000);
+  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+    res.status(404).send({
+      status: 404,
+      error: "Not found",
+    });
+  } else {
+    setTimeout(() => {
+      res.send(rankingChart);
+    }, 1000);
+  }
 });
 
 app.get("/heat", (req, res) => {
+  const { fromDate, toDate } = req.query;
   const heatChart = _.map(
     [
       "Sunday",
@@ -67,9 +81,16 @@ app.get("/heat", (req, res) => {
       })),
     })
   );
-  setTimeout(() => {
-    res.send(heatChart);
-  }, 1000);
+  if (!fromDate || !fromDate.length || !toDate || !toDate.length) {
+    res.status(404).send({
+      status: 404,
+      error: "Not found",
+    });
+  } else {
+    setTimeout(() => {
+      res.send(heatChart);
+    }, 1000);
+  }
 });
 
 app.listen(port, host, () => {

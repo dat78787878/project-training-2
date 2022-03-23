@@ -5,7 +5,7 @@ import { getData } from '../../redux/pieChart/actions';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
+import { difference } from 'lodash';
 const ModalShow = () => {
   const pieData = useSelector((state) => state.pieChart.pieData);
   const { fromDate, toDate } = useSelector((state) => state.dateRange);
@@ -13,7 +13,7 @@ const ModalShow = () => {
   const [listDataModal, setListDataModal] = useState(listAllData);
   const [listDataCheck, setListDataCheck] = useState(pieData.map((val) => val.x));
   const [show, setShow] = useState(false);
-  const _ = require('lodash');
+
   const dispatch = useDispatch();
 
   const onClickLabel = (val) => {
@@ -28,7 +28,7 @@ const ModalShow = () => {
 
   const onHide = () => {
     const prevListDataCheck = pieData.map((val) => val.x);
-    _.difference(listDataCheck, prevListDataCheck)
+    difference(listDataCheck, prevListDataCheck)
       ? dispatch(getData([fromDate, toDate, listDataCheck]))
       : '';
     setShow(false);
