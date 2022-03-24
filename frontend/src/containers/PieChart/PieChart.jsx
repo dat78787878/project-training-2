@@ -14,7 +14,7 @@ const PieChart = () => {
   const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getData([fromDate, toDate]));
+    dispatch(getData([fromDate, toDate, pieData.map((val) => val.x)]));
   }, [fromDate, toDate]);
 
   const options = {
@@ -43,12 +43,12 @@ const PieChart = () => {
   };
 
   const data = {
-    labels: ['Android', 'IOS'],
+    labels: pieData.map((val) => val.x),
     datasets: [
       {
-        data: [pieData.android, pieData.iOS],
-        backgroundColor: ['rgb(0, 255, 200)', 'rgb(234, 0, 255)'],
-        hoverBackgroundColor: ['rgb(0, 255, 200)', 'rgb(234, 0, 255)']
+        data: pieData.map((val) => val.y),
+        backgroundColor: ['#00ffc8', '#ea00ff', '#e02b2b', '#2600ff', '#00d9ff', '#00ff0d'],
+        hoverBackgroundColor: ['#00ffc8', '#ea00ff', '#e02b2b', '#2600ff', '#00d9ff', '#00ff0d']
       }
     ]
   };

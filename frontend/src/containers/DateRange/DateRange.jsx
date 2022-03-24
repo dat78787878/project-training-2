@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom';
 
 const DateRange = () => {
   const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [start, setStart] = useState();
-  const [end, setEnd] = useState();
+  const [startDate, setStartDate] = useState(moment(new Date()));
+  const [endDate, setEndDate] = useState(moment(new Date()));
+  const [start, setStart] = useState(moment(new Date()).format('YYYY-MM-DD'));
+  const [end, setEnd] = useState(moment(new Date()).format('YYYY-MM-DD'));
   const [focusedInput, setFocusedInput] = useState(null);
   const handleDatesChange = ({ startDate, endDate }) => {
     setStartDate(startDate);
@@ -27,6 +27,12 @@ const DateRange = () => {
     const params = Object.fromEntries(urlSearchParams.entries());
     setStartDate(moment(params.fromDate_));
     setEndDate(moment(params.toDate_));
+    dispatch(
+      getData({
+        fromDate: start,
+        toDate: end
+      })
+    );
   }, [window.location.search]);
 
   const handleClick = useCallback(() => {
