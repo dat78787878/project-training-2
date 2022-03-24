@@ -11,8 +11,8 @@ import { Link } from 'react-router-dom';
 
 const DateRange = () => {
   const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState(moment(new Date()));
+  const [endDate, setEndDate] = useState(moment(new Date()));
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
   const [focusedInput, setFocusedInput] = useState(null);
