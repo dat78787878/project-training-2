@@ -27,6 +27,12 @@ const DateRange = () => {
     const params = Object.fromEntries(urlSearchParams.entries());
     setStartDate(moment(params.fromDate_));
     setEndDate(moment(params.toDate_));
+    dispatch(
+      getData({
+        fromDate: start,
+        toDate: end
+      })
+    );
   }, [window.location.search]);
 
   const handleClick = useCallback(() => {
