@@ -13,8 +13,8 @@ const DateRange = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(moment(new Date()));
   const [endDate, setEndDate] = useState(moment(new Date()));
-  const [start, setStart] = useState();
-  const [end, setEnd] = useState();
+  const [start, setStart] = useState(moment(new Date()).format('YYYY-MM-DD'));
+  const [end, setEnd] = useState(moment(new Date()).format('YYYY-MM-DD'));
   const [focusedInput, setFocusedInput] = useState(null);
   const handleDatesChange = ({ startDate, endDate }) => {
     setStartDate(startDate);
