@@ -100,12 +100,13 @@ app.get("/line", (req, res) => {
   const lineChart = _.map(["Android", "iOS"], (device) => {
     if (fromDate === toDate) {
       const today = new Date();
-      const month = moment(today).subtract(1, "months").format("MM/YYYY");
-      const daysInMonth = moment(month, "MM/YYYY").daysInMonth();
+      const month = moment(today).subtract(1, "months").format("YYYY-MM");
+      console.log(month);
+      const daysInMonth = moment(month, "YYYY-MM").daysInMonth();
       return {
         name: device,
         data: _.map(_.range(0, daysInMonth), (day) => ({
-          x: `${day + 1}/${month}`,
+          x: `${month}-${day + 1}`,
           y: _.random(0, 20),
         })),
       };

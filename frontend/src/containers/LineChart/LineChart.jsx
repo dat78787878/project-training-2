@@ -87,7 +87,7 @@ const LineChart = () => {
         setSeries(newSeries);
       }
       if (index === 2) {
-        const newSeries = handleData(lineData, 'MM/YYYY');
+        const newSeries = handleData(lineData, 'MM-YYYY');
         setSeries(newSeries);
       }
     },
