@@ -1,0 +1,29 @@
+.lineChart {
+  width: 68%;
+  margin-left: 20px;
+  background-color: #ffffff;
+
+  &-container {
+    &-menu {
+      display: flex;
+      justify-content: flex-end;
+      &-item {
+        width: 5px;
+        height: 20px;
+        margin: 0 auto;
+        background-color: #00ff22;
+      }
+
+      span {
+        font-size: 16px;
+        color: #000000;
+        font-weight: bold;
+        padding-right: 15px;
+      }
+    }
+  }
+}
+
+.none {
+  visibility: hidden;
+}

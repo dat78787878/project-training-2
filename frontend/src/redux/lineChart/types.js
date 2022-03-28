@@ -1,0 +1,3 @@
+export const GET_LINE_DATA = 'GET_LINE_DATA';
+export const GET_LINE_SUCCESS = 'GET_LINE_SUCCESS';
+export const GET_LINE_ERROR = 'GET_LINE_ERROR';

@@ -1,6 +1,7 @@
 import PieChart from './containers/PieChart/PieChart';
 import RankingChart from './containers/RankingChart/RankingChart';
 import HeatChart from './containers/HeatChart/HeatChart';
+import LineChart from './containers/LineChart/LineChart';
 import DateRange from './containers/DateRange/DateRange';
 import ModalShow from './containers/PieChart/ModalShow';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,6 +13,7 @@ function App() {
       <ModalShow />
       <div className="d-flex">
         <PieChart />
+        <LineChart />
       </div>
       <div className="d-flex pt-3">
         <RankingChart />
