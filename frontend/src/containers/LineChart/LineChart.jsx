@@ -77,16 +77,16 @@ const LineChart = () => {
   };
 
   const handleClick = useCallback(
-    (index) => {
-      setIsActive(index);
-      if (index === 0) {
+    (val) => {
+      setIsActive(val);
+      if (val === 'Day') {
         setSeries(lineData);
       }
-      if (index === 1) {
+      if (val === 'Week') {
         const newSeries = handleData(lineData, 'WW');
         setSeries(newSeries);
       }
-      if (index === 2) {
+      if (val === 'Month') {
         const newSeries = handleData(lineData, 'MM-YYYY');
         setSeries(newSeries);
       }
@@ -102,12 +102,12 @@ const LineChart = () => {
             <>
               <span
                 key={index}
-                style={{ opacity: isActive === index ? 1 : 0.3 }}
+                style={{ opacity: isActive === val ? 1 : 0.3 }}
                 data-testid={val}
-                onClick={() => handleClick(index)}>
+                onClick={() => handleClick(val)}>
                 <div
                   className={
-                    isActive === index
+                    isActive === val
                       ? 'lineChart-container-menu-item'
                       : 'lineChart-container-menu-item none'
                   }></div>
