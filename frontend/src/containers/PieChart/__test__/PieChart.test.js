@@ -25,9 +25,13 @@ describe('PieChart Component', () => {
   it('check loading', () => {
     mockAppState = {
       pieChart: {
-        pieData: {},
+        pieData: [],
         isLoading: true,
         isError: false
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<PieChart />);
@@ -37,9 +41,16 @@ describe('PieChart Component', () => {
   it('success task', () => {
     mockAppState = {
       pieChart: {
-        pieData: { android: 70, iOS: 30 },
+        pieData: [
+          { x: 'Android', y: 80 },
+          { x: 'iOS', y: 20 }
+        ],
         isLoading: false,
         isError: false
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<PieChart />);
@@ -49,9 +60,13 @@ describe('PieChart Component', () => {
   it('error task', () => {
     mockAppState = {
       pieChart: {
-        pieData: {},
+        pieData: [],
         isLoading: false,
         isError: true
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<PieChart />);

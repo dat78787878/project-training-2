@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const port = 8000;
 const host = "localhost";
-
+const moment = require("moment");
 app.use(cors());
 
 app.get("/device_summary", (req, res) => {
@@ -91,6 +91,35 @@ app.get("/heat", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(heatChart);
+    }, 1000);
+  }
+});
+
+app.get("/line", (req, res) => {
+  const { fromDate, toDate } = req.query;
+  const lineChart = _.map(["Android", "iOS"], (device) => {
+    const data = [];
+    let date = fromDate;
+    while (date !== toDate) {
+      data.push({ x: date, y: _.random(0, 30) });
+      date = moment(date, "YYYY-MM-DD").add(1, "days").format("YYYY-MM-DD");
+    }
+    data.push({ x: date, y: _.random(0, 30) });
+    return {
+      name: device,
+      data,
+    };
+  });
+
+  if (!fromDate || !toDate) {
+    res.status(404).send({
+      status: 404,
+      error: "Not found",
+    });
+    return;
+  } else {
+    setTimeout(() => {
+      res.send(lineChart);
     }, 1000);
   }
 });
