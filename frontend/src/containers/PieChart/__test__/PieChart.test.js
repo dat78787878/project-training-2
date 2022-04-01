@@ -30,8 +30,8 @@ describe('PieChart Component', () => {
         isError: false
       },
       dateRange: {
-        fromDate: '08/08/2021',
-        toDate: '09/09/2021'
+        fromDate: '2021-08-08',
+        toDate: '2021-08-09'
       }
     };
     const { container } = render(<PieChart />);
@@ -49,8 +49,8 @@ describe('PieChart Component', () => {
         isError: false
       },
       dateRange: {
-        fromDate: '08/08/2021',
-        toDate: '09/09/2021'
+        fromDate: '2021-08-08',
+        toDate: '2021-08-09'
       }
     };
     const { container } = render(<PieChart />);
@@ -65,8 +65,8 @@ describe('PieChart Component', () => {
         isError: true
       },
       dateRange: {
-        fromDate: '08/08/2021',
-        toDate: '09/09/2021'
+        fromDate: '2021-08-08',
+        toDate: '2021-08-09'
       }
     };
     const { container } = render(<PieChart />);

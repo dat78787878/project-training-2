@@ -28,6 +28,10 @@ describe('RankingChart Component', () => {
         rankingData: [],
         isLoading: true,
         isError: false
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<RankingChart />);
@@ -46,6 +50,10 @@ describe('RankingChart Component', () => {
         ],
         isLoading: false,
         isError: false
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<RankingChart />);
@@ -59,6 +67,10 @@ describe('RankingChart Component', () => {
         rankingData: [],
         isLoading: false,
         isError: true
+      },
+      dateRange: {
+        fromDate: '08/08/2021',
+        toDate: '09/09/2021'
       }
     };
     const { container } = render(<RankingChart />);

@@ -77,7 +77,7 @@ app.get("/heat", (req, res) => {
     (day) => ({
       name: day,
       data: _.map(_.range(0, 24), (time) => ({
-        x: `${time}:00`,
+        x: `${time}`,
         y: _.random(0, 2) !== 2 ? _.random(0, 30) : _.random(0, 50),
       })),
     })

@@ -3,21 +3,35 @@
   background-color: #ffffff;
   margin-left: 20px;
   height: 400px;
+
   &-line {
     height: 8px;
     background-image: linear-gradient(to right, #ffffff, #b700ff);
     width: 94%;
   }
+
   &-number {
     width: 94%;
     padding-left: 13px;
   }
+
   &-time {
     width: 50%;
     padding-left: 13px;
   }
+
+  .apexcharts-xaxis-texts-g text:nth-child(2n) {
+    visibility: hidden;
+  }
 }
+
 .barChart {
   padding-top: 38px;
   padding-left: 10px;
+
+  .apexcharts-xaxis-texts-g {
+    text:not(:first-child):not(:last-child) {
+      visibility: hidden;
+    }
+  }
 }

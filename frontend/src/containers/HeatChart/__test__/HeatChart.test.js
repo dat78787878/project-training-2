@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { useSelector, useDispatch } from 'react-redux';
 import HeatChart from '../HeatChart';
 window.React = React;
@@ -28,6 +28,10 @@ describe('HeatChart Component', () => {
         heatData: [],
         isLoading: true,
         isError: false
+      },
+      dateRange: {
+        fromDate: '2022-03-31',
+        toDate: '2022-03-31'
       }
     };
     const { container } = render(<HeatChart />);
@@ -40,11 +44,15 @@ describe('HeatChart Component', () => {
         heatData: [],
         isLoading: false,
         isError: true
+      },
+      dateRange: {
+        fromDate: '2022-03-31',
+        toDate: '2022-03-31'
       }
     };
-    const { container } = render(<HeatChart />);
+    const { container, getByText } = render(<HeatChart />);
     expect(container).toMatchSnapshot();
-    expect(screen.getByText('Error')).toBeTruthy();
+    expect(getByText('Error')).toBeTruthy();
   });
   it('success task', () => {
     mockAppState = {
@@ -53,34 +61,39 @@ describe('HeatChart Component', () => {
           {
             name: 'Monday',
             data: [
-              { x: '1', y: 5 },
-              { x: '2', y: 5 },
-              { x: '3', y: 5 }
+              { x: '1:00', y: 5 },
+              { x: '2:00', y: 5 },
+              { x: '3:00', y: 5 }
             ]
           },
           {
             name: 'Tuesday',
             data: [
-              { x: '1', y: 6 },
-              { x: '2', y: 6 },
-              { x: '3', y: 6 }
+              { x: '2:00', y: 6 },
+              { x: '10:00', y: 6 },
+              { x: '3:00', y: 6 }
             ]
           },
           {
             name: 'March',
             data: [
-              { x: '1', y: 2 },
-              { x: '2', y: 2 },
-              { x: '3', y: 2 }
+              { x: '4:00', y: 2 },
+              { x: '5:00', y: 2 },
+              { x: '6:00', y: 2 }
             ]
           }
         ],
         isLoading: false,
         isError: false
+      },
+      dateRange: {
+        fromDate: '2022-03-31',
+        toDate: '2022-03-31'
       }
     };
     const { container } = render(<HeatChart />);
+    expect(container.getElementsByClassName('heatChart'));
+    expect(container.getElementsByClassName('barChart'));
     expect(container).toMatchSnapshot();
-    expect(container.getElementsByClassName('apexcharts-canvas'));
   });
 });

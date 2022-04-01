@@ -21,7 +21,7 @@ const HeatChart = () => {
     }, 0);
   });
 
-  const maxValue = Math.max(...dataBarChart);
+  // const maxValue = Math.max(...dataBarChart);
 
   const optionsBar = {
     chart: {
@@ -50,9 +50,6 @@ const HeatChart = () => {
       style: {
         colors: ['#fff']
       },
-      formatter: function (val) {
-        return val;
-      },
       offsetX: 0,
       dropShadow: {
         enabled: true
@@ -63,7 +60,7 @@ const HeatChart = () => {
         show: false
       },
       min: 0,
-      max: maxValue,
+      // max: maxValue,
       categories: [
         'Sunday',
         'Saturday',
@@ -77,11 +74,12 @@ const HeatChart = () => {
         show: true,
         hideOverlappingLabels: true,
         formatter: (value) => {
-          if (value.toFixed(0) < maxValue) {
-            return value > 0 ? '' : 0;
-          } else {
-            return value.toFixed(0);
-          }
+          // if (value.toFixed(0) < maxValue) {
+          //   return value > 0 ? '' : 0;
+          // } else {
+          //   return value.toFixed(0);
+          // }
+          return value.toFixed(0);
         },
         style: {
           fontSize: '14px'
@@ -114,14 +112,7 @@ const HeatChart = () => {
     xaxis: {
       labels: {
         formatter: (value) => {
-          if (value > 12) {
-            value = value - 12;
-          }
-          if (value % 2 == 0) {
-            return parseInt(value);
-          } else {
-            return '';
-          }
+          return value % 12;
         },
         style: {
           fontSize: '14px'
