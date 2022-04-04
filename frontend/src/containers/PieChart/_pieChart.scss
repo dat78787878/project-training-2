@@ -1,7 +1,10 @@
 .pieChart {
   background-color: white;
   height: 485px;
-
+  position: relative;
+  @include pc {
+    height: 585px;
+  }
   @include tablet {
     height: 710px;
   }

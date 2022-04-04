@@ -1,5 +1,17 @@
 .lineChart {
   background-color: #ffffff;
+  height:485px;
+  position: relative;
+  @include pc {
+    height: 585px;
+  }
+  @include tablet {
+    height: 495px;
+  }
+  @include mobile {
+    padding-top:20px;
+    height: 503px;
+  }
   &-container {
     &-menu {
       display: flex;

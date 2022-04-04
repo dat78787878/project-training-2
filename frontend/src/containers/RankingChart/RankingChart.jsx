@@ -30,7 +30,7 @@ const RankingChart = () => {
           padding: 10,
           mirror: true,
           font: {
-            size: 16
+            size: 14
           }
         }
       }
@@ -50,7 +50,7 @@ const RankingChart = () => {
         text: 'Ranking',
         align: 'start',
         font: {
-          size: 16,
+          size: 14,
           weight: 0
         },
         padding: {
@@ -65,7 +65,7 @@ const RankingChart = () => {
         formatter: Math.round,
         font: {
           weight: 'bold',
-          size: 16
+          size: 14
         }
       }
     }

@@ -1,6 +1,6 @@
-
-$tablet-width: 770px;
+$pc-width: 1890px;
 $laptop-width: 1080px;
+$tablet-width: 770px;
 $mobile-width: 450px;
 @mixin mobile {
     @media only screen and (max-width: $mobile-width) {
@@ -14,6 +14,11 @@ $mobile-width: 450px;
 }
 @mixin laptop {
     @media only screen and (max-width: $laptop-width) {
+        @content;
+    }
+}
+@mixin pc {
+    @media only screen and (min-width: $pc-width) {
         @content;
     }
 }

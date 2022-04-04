@@ -127,17 +127,17 @@ const HeatChart = () => {
   };
 
   const heatChart = (
-    <div className="heatChart">
-      <h5 className="">Device By Hour</h5>
-      <div className="heatChart-detail">
+    <div className="heatChart-container">
+      <h5 className="p-2">Device By Hour</h5>
+      <div className="heatChart-container-detail">
         <Chart options={options} series={heatData} type="heatmap" height={240} />
       </div>
-      <div className="d-flex justify-content-between heatChart-time">
+      <div className="d-flex justify-content-between heatChart-container-time">
         <span>am</span>
         <span>pm</span>
       </div>
-      <div className="heatChart-line"></div>
-      <div className="d-flex justify-content-between heatChart-number">
+      <div className="heatChart-container-line"></div>
+      <div className="d-flex justify-content-between heatChart-container-number">
         <span>0</span>
         <span>5</span>
         <span>10</span>
@@ -158,8 +158,12 @@ const HeatChart = () => {
       {isError && <Error />}
       {!isError && !isLoading && (
         <Row>
-          <Col xs={9}>{heatChart}</Col>
-          <Col xs={3}>{barChart}</Col>
+          <Col md={9} sm={12}>
+            {heatChart}
+          </Col>
+          <Col md={3} sm={12}>
+            {barChart}
+          </Col>
         </Row>
       )}
     </div>
