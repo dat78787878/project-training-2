@@ -1,5 +1,15 @@
 .rankingChart {
-  width: 35%;
   background-color: white;
-  height: 400px;
+
+  @include tablet {
+    height: 373px;
+  }
+  @include laptop {
+    height: 330px;
+    padding-right: 20px;
+  }
+  @include mobile {
+    height: 212px;
+  }
+  height: 350px;
 }

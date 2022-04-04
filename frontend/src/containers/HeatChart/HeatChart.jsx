@@ -5,6 +5,7 @@ import { getData } from '../../redux/heatChart/actions';
 import Chart from 'react-apexcharts';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
+import { Col, Row } from 'react-bootstrap';
 
 const HeatChart = () => {
   const { heatData, isLoading, isError } = useSelector((state) => state.heatChart);
@@ -20,9 +21,6 @@ const HeatChart = () => {
       return sum + currentVal.y;
     }, 0);
   });
-
-  // const maxValue = Math.max(...dataBarChart);
-
   const optionsBar = {
     chart: {
       offsetX: -30,
@@ -60,7 +58,6 @@ const HeatChart = () => {
         show: false
       },
       min: 0,
-      // max: maxValue,
       categories: [
         'Sunday',
         'Saturday',
@@ -74,11 +71,6 @@ const HeatChart = () => {
         show: true,
         hideOverlappingLabels: true,
         formatter: (value) => {
-          // if (value.toFixed(0) < maxValue) {
-          //   return value > 0 ? '' : 0;
-          // } else {
-          //   return value.toFixed(0);
-          // }
           return value.toFixed(0);
         },
         style: {
@@ -138,7 +130,7 @@ const HeatChart = () => {
     <div className="heatChart">
       <h5 className="">Device By Hour</h5>
       <div className="heatChart-detail">
-        <Chart options={options} series={heatData} type="heatmap" height={300} />
+        <Chart options={options} series={heatData} type="heatmap" height={240} />
       </div>
       <div className="d-flex justify-content-between heatChart-time">
         <span>am</span>
@@ -156,7 +148,7 @@ const HeatChart = () => {
 
   const barChart = (
     <div className="barChart">
-      <Chart options={optionsBar} series={seriesBar} type="bar" height={300} />
+      <Chart options={optionsBar} series={seriesBar} type="bar" height={230} />
     </div>
   );
 
@@ -165,9 +157,10 @@ const HeatChart = () => {
       {isLoading && <Loading />}
       {isError && <Error />}
       {!isError && !isLoading && (
-        <div className="d-flex">
-          {heatChart} {barChart}
-        </div>
+        <Row>
+          <Col xs={9}>{heatChart}</Col>
+          <Col xs={3}>{barChart}</Col>
+        </Row>
       )}
     </div>
   );

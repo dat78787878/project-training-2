@@ -50,11 +50,12 @@ const RankingChart = () => {
         text: 'Ranking',
         align: 'start',
         font: {
-          size: 18,
+          size: 16,
           weight: 0
         },
         padding: {
-          bottom: 20
+          bottom: 10,
+          top: 10
         }
       },
       datalabels: {

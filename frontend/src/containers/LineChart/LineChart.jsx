@@ -45,7 +45,7 @@ const LineChart = () => {
       text: 'Decive',
       align: 'left',
       style: {
-        fontSize: '18px'
+        fontSize: '16px'
       }
     }
   };
@@ -117,7 +117,7 @@ const LineChart = () => {
           );
         })}
       </div>
-      <Chart options={options} series={series} type="line" height={620} />
+      <Chart options={options} series={series} type="line" height={430} />
     </div>
   );
   return (

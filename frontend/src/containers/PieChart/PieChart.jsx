@@ -33,10 +33,7 @@ const PieChart = () => {
         text: 'Decive Type',
         align: 'start',
         font: {
-          size: 18
-        },
-        padding: {
-          top: 20
+          size: 16
         }
       }
     }

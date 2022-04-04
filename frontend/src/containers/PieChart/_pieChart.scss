@@ -1,5 +1,11 @@
 .pieChart {
-  width: 30%;
   background-color: white;
-  height: 684px;
+  height: 485px;
+
+  @include tablet {
+    height: 710px;
+  }
+  @include mobile {
+    height: 372px;
+  }
 }
