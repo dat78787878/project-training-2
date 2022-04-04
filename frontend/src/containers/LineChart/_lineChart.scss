@@ -9,10 +9,15 @@
   @include tablet {
     padding-top:20px;
     height: 495px;
+    margin-top: 10px;
   }
   @include mobile {
     padding-top:20px;
     height: 503px;
+    margin-top: 10px;
+  }
+  @include laptop{
+    margin-top: 10px;
   }
   &-container {
     &-menu {

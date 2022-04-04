@@ -2,15 +2,28 @@
   background-color: #ffffff;
   position: relative;
 
-  @include mobile {
-    height: 600px;
+  @include pc {
+    height: 400px;
   }
 
   height: 385px;
 
-  @include pc {
-    height: 400px;
+  @include laptop {
+    margin-top: 10px;
   }
+
+  @include tablet {
+    margin-top: 10px;
+  }
+
+  @include mobile {
+    height: 600px;
+    margin-top: 10px;
+  }
+
+
+
+
 
 
   &-container {
@@ -52,7 +65,7 @@
 
 .barChart {
   padding-top: 70px;
- 
+
 
   @include mobile {
     padding-top: 10px;
