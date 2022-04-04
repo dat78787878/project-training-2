@@ -45,7 +45,7 @@ const DateRange = () => {
   }, [startDate, endDate]);
 
   return (
-    <div className="dateRange d-flex">
+    <div className="dateRange d-flex p-2">
       <div className="dateRange-title">Range</div>
       <DateRangePicker
         startDate={startDate}

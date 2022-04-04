@@ -1,14 +1,21 @@
 .pieChart {
   background-color: white;
-  height: 485px;
+  height: 495px;
   position: relative;
+
   @include pc {
-    height: 585px;
+
+    canvas {
+      height: 450px !important;
+      width: 450px !important;
+    }
   }
+
   @include tablet {
-    height: 710px;
+    height: 720px;
   }
+
   @include mobile {
-    height: 372px;
+    height: 382px;
   }
 }

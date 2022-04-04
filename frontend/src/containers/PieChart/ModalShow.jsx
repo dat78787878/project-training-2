@@ -47,7 +47,7 @@ const ModalShow = () => {
   };
 
   return (
-    <div className="modalShow">
+    <div className="modalShow p-2">
       <Button
         variant="success"
         aria-label="button-name"

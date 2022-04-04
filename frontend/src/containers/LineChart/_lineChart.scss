@@ -2,10 +2,12 @@
   background-color: #ffffff;
   height:485px;
   position: relative;
+  padding-left: 35px;
   @include pc {
-    height: 585px;
+    height: 500px;
   }
   @include tablet {
+    padding-top:20px;
     height: 495px;
   }
   @include mobile {

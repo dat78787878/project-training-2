@@ -34,7 +34,8 @@ const PieChart = () => {
         align: 'start',
         font: {
           size: 16
-        }
+        },
+        padding: 10
       }
     }
   };
@@ -51,7 +52,7 @@ const PieChart = () => {
   };
 
   return (
-    <div className="pieChart">
+    <div className="pieChart padding-title">
       {isLoading && <Loading />}
       {isError && <Error />}
       {!isError && !isLoading && <Doughnut data={data} options={options} />}

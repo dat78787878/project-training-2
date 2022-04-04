@@ -88,7 +88,7 @@ const RankingChart = () => {
   };
 
   return (
-    <div className="rankingChart">
+    <div className="rankingChart padding-title">
       {isLoading && <Loading />}
       {isError && <Error />}
       {!isError && !isLoading && <Bar data={data} options={options} plugins={plugins} />}

@@ -1,11 +1,17 @@
 .heatChart {
   background-color: #ffffff;
   position: relative;
-  height: 350px;
 
   @include mobile {
     height: 600px;
   }
+
+  height: 385px;
+
+  @include pc {
+    height: 400px;
+  }
+
 
   &-container {
     &-line {
@@ -45,11 +51,14 @@
 }
 
 .barChart {
-  padding-top: 38px;
-  padding-left: 10px;
+  padding-top: 70px;
+ 
+
   @include mobile {
     padding-top: 10px;
+    padding-left: 20px;
   }
+
   .apexcharts-xaxis-texts-g {
     text:not(:first-child):not(:last-child) {
       visibility: hidden;

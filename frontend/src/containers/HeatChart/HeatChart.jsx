@@ -127,8 +127,8 @@ const HeatChart = () => {
   };
 
   const heatChart = (
-    <div className="heatChart-container">
-      <h5 className="p-2">Device By Hour</h5>
+    <div className="heatChart-container padding-title">
+      <h5 className="">Device By Hour</h5>
       <div className="heatChart-container-detail">
         <Chart options={options} series={heatData} type="heatmap" height={240} />
       </div>

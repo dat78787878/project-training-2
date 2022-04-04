@@ -12,7 +12,7 @@ const LineChart = () => {
   const { lineData, isLoading, isError } = useSelector((state) => state.lineChart);
   const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const groupData = ['Day', 'Week', 'Month'];
-  const [isActive, setIsActive] = useState(0);
+  const [isActive, setIsActive] = useState('Day');
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const LineChart = () => {
 
   useEffect(() => {
     setSeries(lineData);
-    setIsActive(0);
+    setIsActive('Day');
   }, [lineData]);
 
   const totalData = useMemo(() => {
@@ -100,6 +100,7 @@ const LineChart = () => {
         {groupData.map((val, index) => {
           return (
             <>
+              {console.log(isActive)}
               <span
                 key={index}
                 style={{ opacity: isActive === val ? 1 : 0.3 }}
