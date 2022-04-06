@@ -74,7 +74,7 @@ describe('RankingChart Component', () => {
       }
     };
     const { container } = render(<RankingChart />);
-    expect(container).toMatchSnapshot();
     expect(screen.getByText('Error')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 });

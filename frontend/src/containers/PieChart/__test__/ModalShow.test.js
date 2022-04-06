@@ -42,8 +42,8 @@ describe('Modal', () => {
 
   it('render modal', () => {
     const { container } = render(<ModalShow />);
-    expect(container).toMatchSnapshot();
     expect(container.getElementsByClassName('modalShow'));
+    expect(container).toMatchSnapshot();
   });
   it('Filter input', () => {
     const { queryByText, getByRole } = render(<ModalShow />);

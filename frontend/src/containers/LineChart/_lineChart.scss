@@ -12,9 +12,10 @@
     margin-top: 10px;
   }
   @include mobile {
-    padding-top:20px;
+    padding-top:0px;
     height: 503px;
     margin-top: 10px;
+    padding-left: 0px;
   }
   @include laptop{
     margin-top: 10px;

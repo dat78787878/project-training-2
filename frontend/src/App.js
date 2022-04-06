@@ -10,7 +10,7 @@ import { Col, Row } from 'react-bootstrap';
 function App() {
   return (
     <>
-      <div className="title">
+      <div className="header">
         <DateRange />
         <ModalShow />
       </div>

@@ -100,7 +100,6 @@ const LineChart = () => {
         {groupData.map((val, index) => {
           return (
             <>
-              {console.log(isActive)}
               <span
                 key={index}
                 style={{ opacity: isActive === val ? 1 : 0.3 }}

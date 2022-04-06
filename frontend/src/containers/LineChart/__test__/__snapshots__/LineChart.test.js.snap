@@ -74,7 +74,7 @@ exports[`LineChart component get data day 1`] = `
         </span>
       </div>
       <chart
-        height="620"
+        height="430"
         options="[object Object]"
         series="[object Object],[object Object]"
         type="line"
@@ -124,7 +124,7 @@ exports[`LineChart component get data month 1`] = `
         </span>
       </div>
       <chart
-        height="620"
+        height="430"
         options="[object Object]"
         series="[object Object],[object Object]"
         type="line"
@@ -174,7 +174,7 @@ exports[`LineChart component get data week 1`] = `
         </span>
       </div>
       <chart
-        height="620"
+        height="430"
         options="[object Object]"
         series="[object Object],[object Object]"
         type="line"
@@ -197,10 +197,10 @@ exports[`LineChart component success task 1`] = `
       >
         <span
           data-testid="Day"
-          style="opacity: 0.3;"
+          style="opacity: 1;"
         >
           <div
-            class="lineChart-container-menu-item none"
+            class="lineChart-container-menu-item"
           />
           Day
         </span>
@@ -224,7 +224,7 @@ exports[`LineChart component success task 1`] = `
         </span>
       </div>
       <chart
-        height="620"
+        height="430"
         options="[object Object]"
         series="[object Object],[object Object]"
         type="line"

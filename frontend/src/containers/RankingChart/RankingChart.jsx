@@ -27,10 +27,10 @@ const RankingChart = () => {
       y: {
         ticks: {
           display: true,
-          padding: 10,
+          padding: 5,
           mirror: true,
           font: {
-            size: 14
+            size: 12
           }
         }
       }
@@ -65,7 +65,7 @@ const RankingChart = () => {
         formatter: Math.round,
         font: {
           weight: 'bold',
-          size: 14
+          size: 12
         }
       }
     }

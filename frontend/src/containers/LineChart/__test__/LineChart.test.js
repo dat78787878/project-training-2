@@ -35,8 +35,8 @@ describe('LineChart component', () => {
       }
     };
     const { container } = render(<LineChart />);
-    expect(container).toMatchSnapshot();
     expect(container.querySelector('div').firstChild.className).toEqual('loading');
+    expect(container).toMatchSnapshot();
   });
   it('success task', () => {
     mockAppState = {
@@ -68,8 +68,8 @@ describe('LineChart component', () => {
       }
     };
     const { container } = render(<LineChart />);
+    expect(container.getElementsByClassName('apexcharts-canvas')).toBeTruthy();
     expect(container).toMatchSnapshot();
-    expect(container.getElementsByClassName('apexcharts-canvas'));
   });
   it('get data day', () => {
     mockAppState = {
@@ -195,7 +195,7 @@ describe('LineChart component', () => {
       }
     };
     const { container, getByText } = render(<LineChart />);
-    expect(container).toMatchSnapshot();
     expect(getByText('Error')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 });

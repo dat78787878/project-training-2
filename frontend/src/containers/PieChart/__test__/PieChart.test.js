@@ -35,8 +35,8 @@ describe('PieChart Component', () => {
       }
     };
     const { container } = render(<PieChart />);
-    expect(container).toMatchSnapshot();
     expect(container.querySelector('div').firstChild.className).toEqual('loading');
+    expect(container).toMatchSnapshot();
   });
   it('success task', () => {
     mockAppState = {
@@ -54,8 +54,8 @@ describe('PieChart Component', () => {
       }
     };
     const { container } = render(<PieChart />);
-    expect(container).toMatchSnapshot();
     expect(container.querySelector('canvas')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
   it('error task', () => {
     mockAppState = {
@@ -70,7 +70,7 @@ describe('PieChart Component', () => {
       }
     };
     const { container } = render(<PieChart />);
-    expect(container).toMatchSnapshot();
     expect(screen.getByText('Error')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 });

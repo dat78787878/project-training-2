@@ -3,7 +3,7 @@
 exports[`Modal render modal 1`] = `
 <div>
   <div
-    class="modalShow"
+    class="modalShow p-2"
   >
     <button
       aria-label="button-name"
