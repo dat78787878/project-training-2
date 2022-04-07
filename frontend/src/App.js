@@ -3,6 +3,7 @@ import RankingChart from './containers/RankingChart/RankingChart';
 import HeatChart from './containers/HeatChart/HeatChart';
 import LineChart from './containers/LineChart/LineChart';
 import DateRange from './containers/DateRange/DateRange';
+import UsedTime from './containers/UsedTime/UsedTime';
 import ModalShow from './containers/PieChart/ModalShow';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Col, Row } from 'react-bootstrap';
@@ -32,6 +33,9 @@ function App() {
               <HeatChart />
             </Col>
           </Row>
+        </div>
+        <div className="pt-3">
+          <UsedTime />
         </div>
       </div>
     </>

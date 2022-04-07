@@ -1,4 +1,4 @@
-@import "./_mixins";
+@import './_mixins';
 @import '../App.scss';
 @import '../components/Error/style.module.scss';
 @import '../components/Loading/style.module.scss';
@@ -8,3 +8,4 @@
 @import '../containers/HeatChart/_heatChart.scss';
 @import '../containers/LineChart/_lineChart.scss';
 @import '../containers/DateRange/_dateRange.scss';
+@import '../containers/UsedTime/_usedTime.scss';

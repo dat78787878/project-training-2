@@ -1,0 +1,28 @@
+.usedTime {
+    background-color: white;
+    position: relative;
+    height: 430px;
+
+    &-container {
+        &-table {
+            text-align: center;
+            width: 97%;
+
+            div:nth-child(n) {
+                border: 1px solid;
+            }
+        }
+
+        &-pagination {
+            padding: 30px;
+
+            .pagination {
+                justify-content: end;
+            }
+        }
+    }
+
+    @include mobile {
+        display: none;
+    }
+}

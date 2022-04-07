@@ -36,7 +36,6 @@
 
       @include mobile {
         width: 86%;
-        ;
       }
     }
 
@@ -54,12 +53,10 @@
       visibility: hidden;
     }
   }
-
 }
 
 .barChart {
   padding-top: 70px;
-
 
   @include mobile {
     padding-top: 10px;
