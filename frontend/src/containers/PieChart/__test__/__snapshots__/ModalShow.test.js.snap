@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal render modal 1`] = `
+<div>
+  <div
+    class="modalShow p-2"
+  >
+    <button
+      aria-label="button-name"
+      class="m-1 btn btn-success"
+      type="button"
+    >
+      Show modal
+    </button>
+  </div>
+</div>
+`;

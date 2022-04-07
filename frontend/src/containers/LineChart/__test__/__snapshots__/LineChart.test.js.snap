@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LineChart component check loading 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="loading"
+    >
+      <div
+        class="spinner-border text-success"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LineChart component error task 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="error"
+    >
+      Error
+      <img
+        alt="not-found"
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LineChart component get data day 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="lineChart-container"
+    >
+      <div
+        class="lineChart-container-menu"
+      >
+        <span
+          data-testid="Day"
+          style="opacity: 1;"
+        >
+          <div
+            class="lineChart-container-menu-item"
+          />
+          Day
+        </span>
+        <span
+          data-testid="Week"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Week
+        </span>
+        <span
+          data-testid="Month"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Month
+        </span>
+      </div>
+      <chart
+        height="430"
+        options="[object Object]"
+        series="[object Object],[object Object]"
+        type="line"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LineChart component get data month 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="lineChart-container"
+    >
+      <div
+        class="lineChart-container-menu"
+      >
+        <span
+          data-testid="Day"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Day
+        </span>
+        <span
+          data-testid="Week"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Week
+        </span>
+        <span
+          data-testid="Month"
+          style="opacity: 1;"
+        >
+          <div
+            class="lineChart-container-menu-item"
+          />
+          Month
+        </span>
+      </div>
+      <chart
+        height="430"
+        options="[object Object]"
+        series="[object Object],[object Object]"
+        type="line"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LineChart component get data week 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="lineChart-container"
+    >
+      <div
+        class="lineChart-container-menu"
+      >
+        <span
+          data-testid="Day"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Day
+        </span>
+        <span
+          data-testid="Week"
+          style="opacity: 1;"
+        >
+          <div
+            class="lineChart-container-menu-item"
+          />
+          Week
+        </span>
+        <span
+          data-testid="Month"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Month
+        </span>
+      </div>
+      <chart
+        height="430"
+        options="[object Object]"
+        series="[object Object],[object Object]"
+        type="line"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LineChart component success task 1`] = `
+<div>
+  <div
+    class="lineChart"
+  >
+    <div
+      class="lineChart-container"
+    >
+      <div
+        class="lineChart-container-menu"
+      >
+        <span
+          data-testid="Day"
+          style="opacity: 1;"
+        >
+          <div
+            class="lineChart-container-menu-item"
+          />
+          Day
+        </span>
+        <span
+          data-testid="Week"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Week
+        </span>
+        <span
+          data-testid="Month"
+          style="opacity: 0.3;"
+        >
+          <div
+            class="lineChart-container-menu-item none"
+          />
+          Month
+        </span>
+      </div>
+      <chart
+        height="430"
+        options="[object Object]"
+        series="[object Object],[object Object]"
+        type="line"
+      />
+    </div>
+  </div>
+</div>
+`;

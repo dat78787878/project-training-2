@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 import { getData } from '../../redux/dateRange/actions';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
 
 const DateRange = () => {
   const dispatch = useDispatch();
@@ -45,22 +46,30 @@ const DateRange = () => {
   }, [startDate, endDate]);
 
   return (
-    <div className="dateRange d-flex">
-      <div className="dateRange-title">Range</div>
-      <DateRangePicker
-        startDate={startDate}
-        startDateId="start-date"
-        endDate={endDate}
-        endDateId="end-date"
-        onDatesChange={handleDatesChange}
-        focusedInput={focusedInput}
-        onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
-      />
-      <Link to={`?fromDate_=${start}&toDate_=${end}`}>
-        <Button variant="success" onClick={handleClick} className="m-1">
-          OKE
-        </Button>
-      </Link>
+    <div className="dateRange d-flex p-2">
+      <Row>
+        <Col md={2} sm={12}>
+          <div className="dateRange-title">Range</div>
+        </Col>
+        <Col md={8} sm={12}>
+          <DateRangePicker
+            startDate={startDate}
+            startDateId="start-date"
+            endDate={endDate}
+            endDateId="end-date"
+            onDatesChange={handleDatesChange}
+            focusedInput={focusedInput}
+            onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
+          />
+        </Col>
+        <Col md={2} sm={12}>
+          <Link to={`?fromDate_=${start}&toDate_=${end}`}>
+            <Button variant="success" onClick={handleClick} className="m-1">
+              OKE
+            </Button>
+          </Link>
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -27,7 +27,7 @@ app.get("/device_summary", (req, res) => {
   !device_types || !device_types.length
     ? setTimeout(() => {
         res.send(pieChart);
-      }, 1000)
+      }, 5000)
     : setTimeout(() => {
         res.send(
           _.map(device_types, (os) => ({
@@ -35,7 +35,7 @@ app.get("/device_summary", (req, res) => {
             y: _.random(0, 100),
           }))
         );
-      }, 1000);
+      }, 5000);
 });
 
 app.get("/ranking", (req, res) => {
@@ -58,7 +58,7 @@ app.get("/ranking", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(rankingChart);
-    }, 1000);
+    }, 5000);
   }
 });
 
@@ -77,7 +77,7 @@ app.get("/heat", (req, res) => {
     (day) => ({
       name: day,
       data: _.map(_.range(0, 24), (time) => ({
-        x: `${time}:00`,
+        x: `${time}`,
         y: _.random(0, 2) !== 2 ? _.random(0, 30) : _.random(0, 50),
       })),
     })
@@ -91,7 +91,7 @@ app.get("/heat", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(heatChart);
-    }, 1000);
+    }, 5000);
   }
 });
 
@@ -120,7 +120,7 @@ app.get("/line", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(lineChart);
-    }, 1000);
+    }, 5000);
   }
 });
 

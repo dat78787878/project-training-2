@@ -3,7 +3,7 @@
 exports[`RankingChart Component check loading 1`] = `
 <div>
   <div
-    class="rankingChart"
+    class="rankingChart padding-title"
   >
     <div
       class="loading"
@@ -19,7 +19,7 @@ exports[`RankingChart Component check loading 1`] = `
 exports[`RankingChart Component error task 1`] = `
 <div>
   <div
-    class="rankingChart"
+    class="rankingChart padding-title"
   >
     <div
       class="error"
@@ -37,7 +37,7 @@ exports[`RankingChart Component error task 1`] = `
 exports[`RankingChart Component success task 1`] = `
 <div>
   <div
-    class="rankingChart"
+    class="rankingChart padding-title"
   >
     <canvas
       height="150"

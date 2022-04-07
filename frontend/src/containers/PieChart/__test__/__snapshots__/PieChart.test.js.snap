@@ -3,7 +3,7 @@
 exports[`PieChart Component check loading 1`] = `
 <div>
   <div
-    class="pieChart"
+    class="pieChart padding-title"
   >
     <div
       class="loading"
@@ -19,7 +19,7 @@ exports[`PieChart Component check loading 1`] = `
 exports[`PieChart Component error task 1`] = `
 <div>
   <div
-    class="pieChart"
+    class="pieChart padding-title"
   >
     <div
       class="error"
@@ -37,7 +37,7 @@ exports[`PieChart Component error task 1`] = `
 exports[`PieChart Component success task 1`] = `
 <div>
   <div
-    class="pieChart"
+    class="pieChart padding-title"
   >
     <canvas
       height="150"

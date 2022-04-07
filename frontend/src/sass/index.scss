@@ -1,3 +1,5 @@
+@import "./_mixins";
+@import '../App.scss';
 @import '../components/Error/style.module.scss';
 @import '../components/Loading/style.module.scss';
 @import '../containers/PieChart/_pieChart.scss';
@@ -5,5 +7,4 @@
 @import '../containers/RankingChart/_rankingChart.scss';
 @import '../containers/HeatChart/_heatChart.scss';
 @import '../containers/LineChart/_lineChart.scss';
-@import '../App.scss';
 @import '../containers/DateRange/_dateRange.scss';

@@ -1,23 +1,74 @@
 .heatChart {
-  width: 65%;
   background-color: #ffffff;
-  margin-left: 20px;
-  height: 400px;
-  &-line {
-    height: 8px;
-    background-image: linear-gradient(to right, #ffffff, #b700ff);
-    width: 94%;
+  position: relative;
+
+  @include pc {
+    height: 400px;
   }
-  &-number {
-    width: 94%;
-    padding-left: 13px;
+
+  height: 385px;
+
+  @include laptop {
+    margin-top: 10px;
   }
-  &-time {
-    width: 50%;
-    padding-left: 13px;
+
+  @include tablet {
+    margin-top: 10px;
   }
+
+  @include mobile {
+    height: 600px;
+    margin-top: 10px;
+  }
+  &-container {
+    &-line {
+      height: 8px;
+      background-image: linear-gradient(to right, #ffffff, #b700ff);
+      width: 91%;
+
+      @include pc {
+        width: 93%;
+      }
+
+      @include tablet {
+        width: 92%;
+      }
+
+      @include mobile {
+        width: 86%;
+        ;
+      }
+    }
+
+    &-number {
+      width: 94%;
+      padding-left: 13px;
+    }
+
+    &-time {
+      width: 50%;
+      padding-left: 13px;
+    }
+
+    .apexcharts-xaxis-texts-g text:nth-child(2n) {
+      visibility: hidden;
+    }
+  }
+
 }
+
 .barChart {
-  padding-top: 38px;
-  padding-left: 10px;
+  padding-top: 70px;
+
+
+  @include mobile {
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .apexcharts-xaxis-texts-g {
+    text:not(:first-child):not(:last-child) {
+      visibility: hidden;
+    }
+  }
 }

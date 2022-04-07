@@ -9,7 +9,7 @@ import { difference } from 'lodash';
 const ModalShow = () => {
   const pieData = useSelector((state) => state.pieChart.pieData);
   const { fromDate, toDate } = useSelector((state) => state.dateRange);
-  const listAllData = ['Android', 'Windows', 'iOS', 'OsX', 'Unknown', 'Linux'];
+  const listAllData = ['Android', 'Windows', 'iOS', 'Os X', 'Unknown', 'Linux'];
   const [listDataModal, setListDataModal] = useState(listAllData);
   const [listDataCheck, setListDataCheck] = useState(pieData.map((val) => val.x));
   const [show, setShow] = useState(false);
@@ -47,8 +47,12 @@ const ModalShow = () => {
   };
 
   return (
-    <div className="modalShow">
-      <Button variant="success" className="m-1" onClick={() => setShow(true)}>
+    <div className="modalShow p-2">
+      <Button
+        variant="success"
+        aria-label="button-name"
+        className="m-1"
+        onClick={() => setShow(true)}>
         Show modal
       </Button>
 
@@ -66,7 +70,9 @@ const ModalShow = () => {
                 className="d-flex justify-content-between p-2"
                 onClick={() => onClickLabel(val)}>
                 <span>{val}</span>
-                {listDataCheck.includes(val) && <FontAwesomeIcon icon={faCheck} />}
+                {listDataCheck.includes(val) && (
+                  <FontAwesomeIcon icon={faCheck} data-testid="check" />
+                )}
               </div>
             );
           })}

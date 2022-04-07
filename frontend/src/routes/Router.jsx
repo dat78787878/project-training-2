@@ -6,7 +6,6 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route path="/?fromDate_=:fromDate_&toDate_=:toDate_" element={<App />}></Route>
       </Routes>
     </BrowserRouter>
   );

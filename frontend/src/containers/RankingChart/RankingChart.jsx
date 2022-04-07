@@ -27,10 +27,10 @@ const RankingChart = () => {
       y: {
         ticks: {
           display: true,
-          padding: 10,
+          padding: 5,
           mirror: true,
           font: {
-            size: 16
+            size: 12
           }
         }
       }
@@ -50,11 +50,12 @@ const RankingChart = () => {
         text: 'Ranking',
         align: 'start',
         font: {
-          size: 18,
+          size: 14,
           weight: 0
         },
         padding: {
-          bottom: 20
+          bottom: 10,
+          top: 10
         }
       },
       datalabels: {
@@ -64,7 +65,7 @@ const RankingChart = () => {
         formatter: Math.round,
         font: {
           weight: 'bold',
-          size: 16
+          size: 12
         }
       }
     }
@@ -87,7 +88,7 @@ const RankingChart = () => {
   };
 
   return (
-    <div className="rankingChart">
+    <div className="rankingChart padding-title">
       {isLoading && <Loading />}
       {isError && <Error />}
       {!isError && !isLoading && <Bar data={data} options={options} plugins={plugins} />}

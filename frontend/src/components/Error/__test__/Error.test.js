@@ -5,8 +5,8 @@ window.React = React;
 
 describe('Error Component', () => {
   it('render component success', () => {
-    const { container } = render(<Error />);
+    const { container, getByText } = render(<Error />);
     expect(container).toMatchSnapshot();
-    expect(screen.getByText('Error')).toBeTruthy();
+    expect(getByText('Error')).toBeTruthy();
   });
 });
