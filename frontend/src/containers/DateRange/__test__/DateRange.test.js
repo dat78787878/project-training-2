@@ -4,7 +4,6 @@ import DateRange from '../DateRange';
 import { useDispatch } from 'react-redux';
 import 'react-dates/initialize';
 import { BrowserRouter } from 'react-router-dom';
-import moment from 'moment';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -30,17 +29,17 @@ describe('DateRange', () => {
     expect(container.getElementsByClassName('dateRange'));
   });
   it('change date range and dispatch', () => {
-    const mockDate = new Date();
-    const buttonOK = getByText('OKE');
+    const mockDate = '04/03/2022';
     const { container, getByRole, getByText } = render(
       <BrowserRouter>
         <DateRange />
       </BrowserRouter>
     );
-    getByRole('textbox', { name: /Start Date/i }).focus();
-    expect(getByRole('textbox', { name: /Start Date/i }).value).toEqual(
-      moment(mockDate).format('MM/DD/YYYY')
-    );
+    // const input = getByRole('textbox', { name: /Start Date/i }).focus();
+    const input = getByRole('textbox', { name: /Start Date/i });
+    fireEvent.change(input, { target: { value: '04/03/2022' } });
+    expect(input.value).toEqual(mockDate);
+    const buttonOK = getByText('OKE');
     fireEvent.click(buttonOK);
     expect(container).toMatchSnapshot();
   });
