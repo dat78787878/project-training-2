@@ -117,13 +117,17 @@ const UsedTime = () => {
   const handleMoveRight = (page) => {
     setPage(page + 1);
   };
-
   const handleSort = useCallback(
-    (sort) => {
-      setSort(sort);
-      const dataSortTemp = usedTimeData;
-      const dataSort = dataSortTemp.sort((a, b) => a.userName.localeCompare(b.userName));
-      setDataRender(dataSort);
+    (s) => {
+      if (s === 'asc') {
+        setSort('');
+        setDataRender(usedTimeData);
+      } else {
+        setSort('asc');
+        const dataSortTemp = usedTimeData;
+        const dataSort = dataSortTemp.sort((a, b) => a.userName.localeCompare(b.userName));
+        setDataRender(dataSort);
+      }
     },
     [usedTimeData]
   );
@@ -194,7 +198,7 @@ const UsedTime = () => {
           <FontAwesomeIcon
             icon={faArrowUp}
             data-testid="arrow-circle-up"
-            onClick={() => handleSort('arc')}
+            onClick={() => handleSort(sort)}
           />
         </th>
         {listTitleString.map((val, index) => {
@@ -208,22 +212,26 @@ const UsedTime = () => {
   );
   const tableUsedTime = (
     <>
-      {isError ? 'no data' : ''}
-
       <tbody>
-        {dataRender.map((val, index) => {
-          return (
-            <tr key={index + uuidv4()}>
-              <td key={index + uuidv4()}>{val.userName}</td>
-              <td key={index + uuidv4()}>{val.oSName}</td>
-              <td key={index + uuidv4()}>{moment(val.date).format('YYYY-MM-DD')}</td>
-              <td key={index + uuidv4()}>{val.useTimeNumber}</td>
-              <td key={index + uuidv4()}>{val.facebookTimeUse}</td>
-              <td key={index + uuidv4()}>{val.youtubeTimeUse}</td>
-              <td key={index + uuidv4()}>{val.other}</td>
-            </tr>
-          );
-        })}
+        {isError ? (
+          <tr>
+            <td colSpan={7}>no data</td>
+          </tr>
+        ) : (
+          dataRender.map((val, index) => {
+            return (
+              <tr key={index + uuidv4()}>
+                <td key={index + uuidv4()}>{val.userName}</td>
+                <td key={index + uuidv4()}>{val.oSName}</td>
+                <td key={index + uuidv4()}>{moment(val.date).format('YYYY-MM-DD')}</td>
+                <td key={index + uuidv4()}>{val.useTimeNumber}</td>
+                <td key={index + uuidv4()}>{val.facebookTimeUse}</td>
+                <td key={index + uuidv4()}>{val.youtubeTimeUse}</td>
+                <td key={index + uuidv4()}>{val.other}</td>
+              </tr>
+            );
+          })
+        )}
       </tbody>
       <tfoot>
         <tr>
