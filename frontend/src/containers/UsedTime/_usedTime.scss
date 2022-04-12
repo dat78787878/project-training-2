@@ -1,13 +1,18 @@
 .usedTime {
   background-color: white;
   height: 430px;
+
   &-container {
     text-align: center;
     width: 97%;
+
     table {
+      table-layout: fixed;
+
       tbody {
         height: 500px;
       }
+
       cursor: pointer;
     }
   }
@@ -15,8 +20,10 @@
 
 tfoot {
   border-top: none !important;
+
   tr {
     border: none !important;
+
     td {
       border: none !important;
     }
@@ -27,6 +34,7 @@ nav {
   .pagination {
     justify-content: flex-end;
   }
+
   li a {
     text-decoration: none;
     color: black;
