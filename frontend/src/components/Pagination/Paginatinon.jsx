@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Paginatinon = ({ page, setPage, sort }) => {
-  const LEFT_PAGE = 'LEFT';
-  const RIGHT_PAGE = 'RIGHT';
-  console.log('page', page);
+const Paginatinon = ({ page, setPage, sort, totalPages }) => {
   const range = (from, to, step = 1) => {
     let i = from;
     const range = [];
@@ -18,7 +15,6 @@ const Paginatinon = ({ page, setPage, sort }) => {
   };
 
   const fetchPageNumbers = () => {
-    const totalPages = 10;
     const pageNeighbours = 1;
     /**
      * totalNumbers: the total page numbers to show on the control
@@ -43,21 +39,21 @@ const Paginatinon = ({ page, setPage, sort }) => {
         // handle: (1) < {5 6} [7] {8 9} (10)
         case hasLeftSpill && !hasRightSpill: {
           const extraPages = range(startPage - spillOffset, startPage - 1);
-          pages = [LEFT_PAGE, ...extraPages, ...pages];
+          pages = ['LEFT', ...extraPages, ...pages];
           break;
         }
 
         // handle: (1) {2 3} [4] {5 6} > (10)
         case !hasLeftSpill && hasRightSpill: {
           const extraPages = range(endPage + 1, endPage + spillOffset);
-          pages = [...pages, ...extraPages, RIGHT_PAGE];
+          pages = [...pages, ...extraPages, 'RIGHT'];
           break;
         }
 
         // handle: (1) < {4 5} [6] {7 8} > (10)
         case hasLeftSpill && hasRightSpill:
         default: {
-          pages = [LEFT_PAGE, ...pages, RIGHT_PAGE];
+          pages = ['LEFT', ...pages, 'RIGHT'];
           break;
         }
       }
@@ -85,7 +81,7 @@ const Paginatinon = ({ page, setPage, sort }) => {
       <nav aria-label="Countries Pagination">
         <ul className="pagination">
           {pages.map((item, index) => {
-            if (item == LEFT_PAGE)
+            if (item == 'LEFT')
               return (
                 <li key={index} className="page-item">
                   <Link to={`/used_time?page=${parseInt(page) - 1}&sort=${sort}`}>
@@ -101,7 +97,7 @@ const Paginatinon = ({ page, setPage, sort }) => {
                 </li>
               );
 
-            if (item === RIGHT_PAGE)
+            if (item === 'RIGHT')
               return (
                 <li key={index} className="page-item">
                   <Link to={`/used_time?page=${parseInt(page) + 1}&sort=${sort}`}>

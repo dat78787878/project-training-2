@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import Menu from '../Menu/Menu';
-import Paginatinon from '../Pagination/Paginatinon';
+import Paginatinon from '../../components/Pagination/Paginatinon';
 
 const UsedTime = () => {
   const { usedTimeData, isLoading, isError } = useSelector((state) => state.usedTime);
@@ -17,7 +17,7 @@ const UsedTime = () => {
   const listTitleNumber = ['Total', 'Facebook', 'Youtube', 'Other'];
   const [dataRender, setDataRender] = useState([]);
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('asc');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -70,7 +70,6 @@ const UsedTime = () => {
       <tr>
         <th>
           UserName
-          {console.log('sort', sort)}
           {sort == 'desc' ? (
             <FontAwesomeIcon
               icon={faArrowDown}
@@ -94,20 +93,23 @@ const UsedTime = () => {
       </tr>
     </thead>
   );
-  const tableUsedTime = (
+  const tableUsedTimeBody = (
     <>
       <tbody>
-        {isLoading ? (
+        {isLoading && (
           <tr>
             <td colSpan={7}>
               <Loading />
             </td>
           </tr>
-        ) : isError ? (
+        )}
+        {isError && (
           <tr>
             <td colSpan={7}>no data</td>
           </tr>
-        ) : (
+        )}
+        {!isError &&
+          !isLoading &&
           dataRender.map((val, index) => {
             return (
               <tr key={index + uuidv4()}>
@@ -120,13 +122,12 @@ const UsedTime = () => {
                 <td key={index + uuidv4()}>{val.other}</td>
               </tr>
             );
-          })
-        )}
+          })}
       </tbody>
       <tfoot>
         <tr>
           <td colSpan={7}>
-            <Paginatinon page={page} setPage={setPage} sort={sort} />
+            <Paginatinon page={page} setPage={setPage} sort={sort} totalPages={10} />
           </td>
         </tr>
       </tfoot>
@@ -139,7 +140,7 @@ const UsedTime = () => {
       <div className="usedTime-container padding-title">
         <Table striped bordered hover>
           {tableUsedTimeHeader}
-          {tableUsedTime}
+          {tableUsedTimeBody}
         </Table>
       </div>
     </div>

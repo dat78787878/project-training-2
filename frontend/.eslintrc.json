@@ -20,13 +20,20 @@
     "comma-dangle": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "max-len": "off",
-    "no-console": "off",
     "no-plusplus": "off",
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-console": "off",
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+                "message": "Unexpected property on console object was called"
+            }
+        ]
   }
 }

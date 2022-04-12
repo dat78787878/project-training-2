@@ -101,135 +101,133 @@ exports[`UsedTime check loading 1`] = `
             <td
               colspan="7"
             >
-              <div>
-                <div
-                  class="usedTime-container-pagination"
+              <div
+                class="usedTime-container-pagination"
+              >
+                
+                <nav
+                  aria-label="Countries Pagination"
                 >
-                  
-                  <nav
-                    aria-label="Countries Pagination"
+                  <ul
+                    class="pagination"
                   >
-                    <ul
-                      class="pagination"
+                    <li
+                      class="page-item active"
                     >
-                      <li
-                        class="page-item active"
+                      <a
+                        href="/used_time?page=1&sort="
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          class="page-link"
+                          data-testid="1"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="1"
-                            href="#"
-                          >
-                            1
-                          </a>
+                          1
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          class="page-link"
+                          data-testid="2"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="2"
-                            href="#"
-                          >
-                            2
-                          </a>
+                          2
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=3&sort="
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          class="page-link"
+                          data-testid="3"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="3"
-                            href="#"
-                          >
-                            3
-                          </a>
+                          3
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=4&sort="
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          class="page-link"
+                          data-testid="4"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="4"
-                            href="#"
-                          >
-                            4
-                          </a>
+                          4
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=5&sort="
                       >
                         <a
-                          href="/used_time?page=5&sort="
+                          class="page-link"
+                          data-testid="5"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="5"
-                            href="#"
-                          >
-                            5
-                          </a>
+                          5
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          aria-expanded="false"
+                          aria-label="Next"
+                          class="page-link"
+                          href="#"
                         >
-                          <a
-                            aria-expanded="false"
-                            aria-label="Next"
-                            class="page-link"
-                            href="#"
+                          <span
+                            aria-hidden="true"
                           >
-                            <span
-                              aria-hidden="true"
-                            >
-                              »
-                            </span>
-                            <span
-                              class="sr-only"
-                            >
-                              Next
-                            </span>
-                          </a>
+                            »
+                          </span>
+                          <span
+                            class="sr-only"
+                          >
+                            Next
+                          </span>
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=10&sort="
                       >
                         <a
-                          href="/used_time?page=10&sort="
+                          class="page-link"
+                          data-testid="10"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="10"
-                            href="#"
-                          >
-                            10
-                          </a>
+                          10
                         </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </td>
           </tr>
@@ -334,135 +332,133 @@ exports[`UsedTime error task 1`] = `
             <td
               colspan="7"
             >
-              <div>
-                <div
-                  class="usedTime-container-pagination"
+              <div
+                class="usedTime-container-pagination"
+              >
+                
+                <nav
+                  aria-label="Countries Pagination"
                 >
-                  
-                  <nav
-                    aria-label="Countries Pagination"
+                  <ul
+                    class="pagination"
                   >
-                    <ul
-                      class="pagination"
+                    <li
+                      class="page-item active"
                     >
-                      <li
-                        class="page-item active"
+                      <a
+                        href="/used_time?page=1&sort="
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          class="page-link"
+                          data-testid="1"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="1"
-                            href="#"
-                          >
-                            1
-                          </a>
+                          1
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          class="page-link"
+                          data-testid="2"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="2"
-                            href="#"
-                          >
-                            2
-                          </a>
+                          2
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=3&sort="
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          class="page-link"
+                          data-testid="3"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="3"
-                            href="#"
-                          >
-                            3
-                          </a>
+                          3
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=4&sort="
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          class="page-link"
+                          data-testid="4"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="4"
-                            href="#"
-                          >
-                            4
-                          </a>
+                          4
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=5&sort="
                       >
                         <a
-                          href="/used_time?page=5&sort="
+                          class="page-link"
+                          data-testid="5"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="5"
-                            href="#"
-                          >
-                            5
-                          </a>
+                          5
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          aria-expanded="false"
+                          aria-label="Next"
+                          class="page-link"
+                          href="#"
                         >
-                          <a
-                            aria-expanded="false"
-                            aria-label="Next"
-                            class="page-link"
-                            href="#"
+                          <span
+                            aria-hidden="true"
                           >
-                            <span
-                              aria-hidden="true"
-                            >
-                              »
-                            </span>
-                            <span
-                              class="sr-only"
-                            >
-                              Next
-                            </span>
-                          </a>
+                            »
+                          </span>
+                          <span
+                            class="sr-only"
+                          >
+                            Next
+                          </span>
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=10&sort="
                       >
                         <a
-                          href="/used_time?page=10&sort="
+                          class="page-link"
+                          data-testid="10"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="10"
-                            href="#"
-                          >
-                            10
-                          </a>
+                          10
                         </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </td>
           </tr>
@@ -606,134 +602,132 @@ exports[`UsedTime handle Click UsedTime 1`] = `
             <td
               colspan="7"
             >
-              <div>
-                <div
-                  class="usedTime-container-pagination"
+              <div
+                class="usedTime-container-pagination"
+              >
+                
+                <nav
+                  aria-label="Countries Pagination"
                 >
-                  
-                  <nav
-                    aria-label="Countries Pagination"
+                  <ul
+                    class="pagination"
                   >
-                    <ul
-                      class="pagination"
+                    <li
+                      class="page-item"
                     >
-                      <li
-                        class="page-item"
+                      <a
+                        href="/used_time?page=1&sort=asc"
                       >
                         <a
-                          href="/used_time?page=1&sort=asc"
+                          class="page-link"
+                          data-testid="1"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="1"
-                            href="#"
-                          >
-                            1
-                          </a>
+                          1
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=8&sort=asc"
                       >
                         <a
-                          href="/used_time?page=8&sort=asc"
+                          aria-label="Previous"
+                          class="page-link"
+                          href="#"
                         >
-                          <a
-                            aria-label="Previous"
-                            class="page-link"
-                            href="#"
+                          <span
+                            aria-hidden="true"
                           >
-                            <span
-                              aria-hidden="true"
-                            >
-                              «
-                            </span>
-                            <span
-                              class="sr-only"
-                            >
-                              Previous
-                            </span>
-                          </a>
+                            «
+                          </span>
+                          <span
+                            class="sr-only"
+                          >
+                            Previous
+                          </span>
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=6&sort=asc"
                       >
                         <a
-                          href="/used_time?page=6&sort=asc"
+                          class="page-link"
+                          data-testid="6"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="6"
-                            href="#"
-                          >
-                            6
-                          </a>
+                          6
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=7&sort=asc"
                       >
                         <a
-                          href="/used_time?page=7&sort=asc"
+                          class="page-link"
+                          data-testid="7"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="7"
-                            href="#"
-                          >
-                            7
-                          </a>
+                          7
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=8&sort=asc"
                       >
                         <a
-                          href="/used_time?page=8&sort=asc"
+                          class="page-link"
+                          data-testid="8"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="8"
-                            href="#"
-                          >
-                            8
-                          </a>
+                          8
                         </a>
-                      </li>
-                      <li
-                        class="page-item active"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item active"
+                    >
+                      <a
+                        href="/used_time?page=9&sort=asc"
                       >
                         <a
-                          href="/used_time?page=9&sort=asc"
+                          class="page-link"
+                          data-testid="9"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="9"
-                            href="#"
-                          >
-                            9
-                          </a>
+                          9
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=10&sort=asc"
                       >
                         <a
-                          href="/used_time?page=10&sort=asc"
+                          class="page-link"
+                          data-testid="10"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="10"
-                            href="#"
-                          >
-                            10
-                          </a>
+                          10
                         </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </td>
           </tr>
@@ -827,29 +821,6 @@ exports[`UsedTime render UsedTime 1`] = `
         <tbody>
           <tr>
             <td>
-              pqjx1
-            </td>
-            <td>
-              iOS
-            </td>
-            <td>
-              2016-04-03
-            </td>
-            <td>
-              11
-            </td>
-            <td>
-              7
-            </td>
-            <td>
-              9
-            </td>
-            <td>
-              18
-            </td>
-          </tr>
-          <tr>
-            <td>
               g5zxl
             </td>
             <td>
@@ -871,141 +842,162 @@ exports[`UsedTime render UsedTime 1`] = `
               7
             </td>
           </tr>
+          <tr>
+            <td>
+              pqjx1
+            </td>
+            <td>
+              iOS
+            </td>
+            <td>
+              2016-04-03
+            </td>
+            <td>
+              11
+            </td>
+            <td>
+              7
+            </td>
+            <td>
+              9
+            </td>
+            <td>
+              18
+            </td>
+          </tr>
         </tbody>
         <tfoot>
           <tr>
             <td
               colspan="7"
             >
-              <div>
-                <div
-                  class="usedTime-container-pagination"
+              <div
+                class="usedTime-container-pagination"
+              >
+                
+                <nav
+                  aria-label="Countries Pagination"
                 >
-                  
-                  <nav
-                    aria-label="Countries Pagination"
+                  <ul
+                    class="pagination"
                   >
-                    <ul
-                      class="pagination"
+                    <li
+                      class="page-item active"
                     >
-                      <li
-                        class="page-item active"
+                      <a
+                        href="/used_time?page=1&sort="
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          class="page-link"
+                          data-testid="1"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="1"
-                            href="#"
-                          >
-                            1
-                          </a>
+                          1
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          class="page-link"
+                          data-testid="2"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="2"
-                            href="#"
-                          >
-                            2
-                          </a>
+                          2
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=3&sort="
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          class="page-link"
+                          data-testid="3"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="3"
-                            href="#"
-                          >
-                            3
-                          </a>
+                          3
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=4&sort="
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          class="page-link"
+                          data-testid="4"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="4"
-                            href="#"
-                          >
-                            4
-                          </a>
+                          4
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=5&sort="
                       >
                         <a
-                          href="/used_time?page=5&sort="
+                          class="page-link"
+                          data-testid="5"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="5"
-                            href="#"
-                          >
-                            5
-                          </a>
+                          5
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=2&sort="
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          aria-expanded="false"
+                          aria-label="Next"
+                          class="page-link"
+                          href="#"
                         >
-                          <a
-                            aria-expanded="false"
-                            aria-label="Next"
-                            class="page-link"
-                            href="#"
+                          <span
+                            aria-hidden="true"
                           >
-                            <span
-                              aria-hidden="true"
-                            >
-                              »
-                            </span>
-                            <span
-                              class="sr-only"
-                            >
-                              Next
-                            </span>
-                          </a>
+                            »
+                          </span>
+                          <span
+                            class="sr-only"
+                          >
+                            Next
+                          </span>
                         </a>
-                      </li>
-                      <li
-                        class="page-item"
+                      </a>
+                    </li>
+                    <li
+                      class="page-item"
+                    >
+                      <a
+                        href="/used_time?page=10&sort="
                       >
                         <a
-                          href="/used_time?page=10&sort="
+                          class="page-link"
+                          data-testid="10"
+                          href="#"
                         >
-                          <a
-                            class="page-link"
-                            data-testid="10"
-                            href="#"
-                          >
-                            10
-                          </a>
+                          10
                         </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </td>
           </tr>
