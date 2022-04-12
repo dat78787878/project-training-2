@@ -40,7 +40,7 @@ describe('UsedTime', () => {
         <UsedTime />
       </BrowserRouter>
     );
-    expect(container.querySelector('div').firstChild.className).toEqual('loading');
+    expect(screen.getByTestId('loading')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
   it('error task', () => {
@@ -60,7 +60,7 @@ describe('UsedTime', () => {
         <UsedTime />
       </BrowserRouter>
     );
-    expect(screen.getByText('Error')).toBeTruthy();
+    expect(screen.getByText('no data')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
   it('render UsedTime', () => {
@@ -99,7 +99,7 @@ describe('UsedTime', () => {
         <UsedTime />
       </BrowserRouter>
     );
-    expect(getByText('Total')).toBeTruthy();
+    expect(getByText('iOS')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
   it('handle Click UsedTime', () => {
@@ -140,8 +140,10 @@ describe('UsedTime', () => {
     );
     const link = getByRole('link', { expanded: false });
     const link2 = screen.getByTestId(10);
+    const svg = screen.getByTestId('arrow-circle-up');
     fireEvent.click(link2);
     fireEvent.click(link);
+    fireEvent.click(svg);
     expect(container).toMatchSnapshot();
   });
 });

@@ -10,6 +10,7 @@ exports[`LineChart component check loading 1`] = `
     >
       <div
         class="spinner-border text-success"
+        data-testid="loading"
       />
     </div>
   </div>

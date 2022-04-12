@@ -1,47 +1,48 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import moment from 'moment';
 import { getData } from '../../redux/usedTime/actions';
-import Error from '../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
-import { Col, Row } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import Menu from '../Menu/Menu';
 
 const UsedTime = () => {
   const { usedTimeData, isLoading, isError } = useSelector((state) => state.usedTime);
-  const { fromDate, toDate } = useSelector((state) => state.dateRange);
   const listTitleString = ['OS Name', 'Date'];
-  const listTitleNumber = ['Total', 'Fb', 'Yb', 'Other'];
-  const [dataRender, setDataRender] = useState(usedTimeData);
-  const [currentPage, setCurrentPage] = useState(1);
+  const listTitleNumber = ['Total', 'Facebook', 'Youtube', 'Other'];
+  const [dataRender, setDataRender] = useState([]);
+  const [page, setPage] = useState(1);
+  const [sort, setSort] = useState('');
   const LEFT_PAGE = 'LEFT';
   const RIGHT_PAGE = 'RIGHT';
-
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getData([fromDate, toDate, currentPage]));
-  }, [fromDate, toDate, currentPage]);
+    dispatch(getData([page, sort]));
+  }, [page, sort]);
 
   useEffect(() => {
-    usedTimeData.sort((a, b) => a.userName.localeCompare(b.userName));
-    setDataRender(usedTimeData);
-  }, [usedTimeData]);
+    if (sort == '' || !sort) {
+      setDataRender(usedTimeData);
+    } else {
+      const dataSortTemp = usedTimeData;
+      const dataSort = dataSortTemp.sort((a, b) => a.userName.localeCompare(b.userName));
+      setDataRender(dataSort);
+    }
+  }, [usedTimeData, sort]);
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-    setCurrentPage(params.currentPage);
-    dispatch(
-      getData({
-        fromDate: fromDate,
-        toDate: toDate,
-        currentPage: params.currentPage
-      })
-    );
+    params.page ? '' : (params.page = 1);
+    params.sort ? '' : (params.sort = '');
+    setPage(params.page);
+    setSort(params.sort);
+    dispatch(getData([params.page, params.sort]));
   }, [window.location.search]);
 
   const range = (from, to, step = 1) => {
@@ -64,10 +65,9 @@ const UsedTime = () => {
      */
     const totalNumbers = pageNeighbours * 2 + 3;
     const totalBlocks = totalNumbers + 2;
-    console.log(totalBlocks);
     if (totalPages > totalBlocks) {
-      const startPage = Math.max(2, parseInt(currentPage) - pageNeighbours);
-      const endPage = Math.min(totalPages - 1, parseInt(currentPage) + pageNeighbours);
+      const startPage = Math.max(2, parseInt(page) - pageNeighbours);
+      const endPage = Math.min(totalPages - 1, parseInt(page) + pageNeighbours);
       const current = totalPages - endPage;
       let pages = range(startPage, endPage);
       /**
@@ -107,30 +107,38 @@ const UsedTime = () => {
     return range(1, totalPages);
   };
   const handleClick = (page) => {
-    setCurrentPage(page);
+    setPage(page);
   };
 
-  const handleMoveLeft = (currentPage) => {
-    setCurrentPage(currentPage - 1);
+  const handleMoveLeft = (page) => {
+    setPage(page - 1);
   };
 
-  const handleMoveRight = (currentPage) => {
-    setCurrentPage(currentPage + 1);
+  const handleMoveRight = (page) => {
+    setPage(page + 1);
   };
+
+  const handleSort = useCallback(
+    (sort) => {
+      setSort(sort);
+      const dataSortTemp = usedTimeData;
+      const dataSort = dataSortTemp.sort((a, b) => a.userName.localeCompare(b.userName));
+      setDataRender(dataSort);
+    },
+    [usedTimeData]
+  );
+
   const pages = fetchPageNumbers();
   const pagination = (
     <div className="usedTime-container-pagination">
-      {!currentPage ? setCurrentPage(1) : ''}
+      {!page ? setPage(1) : ''}
       <nav aria-label="Countries Pagination">
         <ul className="pagination">
-          {pages.map((page, index) => {
-            if (page == LEFT_PAGE)
+          {pages.map((item, index) => {
+            if (item == LEFT_PAGE)
               return (
                 <li key={index} className="page-item">
-                  <Link
-                    to={`?fromDate_=${fromDate}&toDate_=${toDate}&currentPage=${
-                      parseInt(currentPage) - 1
-                    }`}>
+                  <Link to={`/used_time?page=${parseInt(page) - 1}&sort=${sort}`}>
                     <a
                       className="page-link"
                       href="#"
@@ -143,13 +151,10 @@ const UsedTime = () => {
                 </li>
               );
 
-            if (page === RIGHT_PAGE)
+            if (item === RIGHT_PAGE)
               return (
                 <li key={index} className="page-item">
-                  <Link
-                    to={`?fromDate_=${fromDate}&toDate_=${toDate}&currentPage=${
-                      parseInt(currentPage) + 1
-                    }`}>
+                  <Link to={`/used_time?page=${parseInt(page) + 1}&sort=${sort}`}>
                     <a
                       className="page-link"
                       href="#"
@@ -164,14 +169,14 @@ const UsedTime = () => {
               );
 
             return (
-              <li key={index} className={`page-item${currentPage == page ? ' active' : ''}`}>
-                <Link to={`?fromDate_=${fromDate}&toDate_=${toDate}&currentPage=${page}`}>
+              <li key={index} className={`page-item${page == item ? ' active' : ''}`}>
+                <Link to={`/used_time?page=${item}&sort=${sort}`}>
                   <a
                     className="page-link"
-                    data-testid={page}
+                    data-testid={item}
                     href="#"
-                    onClick={() => handleClick(page)}>
-                    {page}
+                    onClick={() => handleClick(item)}>
+                    {item}
                   </a>
                 </Link>
               </li>
@@ -181,68 +186,62 @@ const UsedTime = () => {
       </nav>
     </div>
   );
+  const tableUsedTimeHeader = (
+    <thead>
+      <tr>
+        <th>
+          UserName
+          <FontAwesomeIcon
+            icon={faArrowUp}
+            data-testid="arrow-circle-up"
+            onClick={() => handleSort('arc')}
+          />
+        </th>
+        {listTitleString.map((val, index) => {
+          return <th key={index + uuidv4()}>{val}</th>;
+        })}
+        {listTitleNumber.map((val, index) => {
+          return <th key={index + uuidv4()}>{val}</th>;
+        })}
+      </tr>
+    </thead>
+  );
   const tableUsedTime = (
-    <div className="usedTime-container">
-      <div className="usedTime-container-table">
-        <Row>
-          <Col xs={2}>
-            UserName
-            <FontAwesomeIcon icon={faArrowAltCircleUp} data-testid="arrow-circle-up" />
-          </Col>
-          {listTitleString.map((val, index) => {
-            return (
-              <Col xs={3} key={index + uuidv4()}>
-                {val}
-              </Col>
-            );
-          })}
-          {listTitleNumber.map((val, index) => {
-            return (
-              <Col xs={1} key={index + uuidv4()}>
-                {val}
-              </Col>
-            );
-          })}
-        </Row>
-        <Row>
-          {dataRender.map((val, index) => {
-            return (
-              <>
-                <Col xs={2} key={index + uuidv4()}>
-                  {val.userName}
-                </Col>
-                <Col xs={3} key={index + uuidv4()}>
-                  {val.oSName}
-                </Col>
-                <Col xs={3} key={index + uuidv4()}>
-                  {moment(val.date).format('YYYY-MM-DD')}
-                </Col>
-                <Col xs={1} key={index + uuidv4()}>
-                  {val.useTimeNumber}
-                </Col>
-                <Col xs={1} key={index + uuidv4()}>
-                  {val.facebookTimeUse}
-                </Col>
-                <Col xs={1} key={index + uuidv4()}>
-                  {val.youtubeTimeUse}
-                </Col>
-                <Col xs={1} key={index + uuidv4()}>
-                  {val.other}
-                </Col>
-              </>
-            );
-          })}
-        </Row>
-      </div>
-      {pagination}
-    </div>
+    <>
+      {isError ? 'no data' : ''}
+
+      <tbody>
+        {dataRender.map((val, index) => {
+          return (
+            <tr key={index + uuidv4()}>
+              <td key={index + uuidv4()}>{val.userName}</td>
+              <td key={index + uuidv4()}>{val.oSName}</td>
+              <td key={index + uuidv4()}>{moment(val.date).format('YYYY-MM-DD')}</td>
+              <td key={index + uuidv4()}>{val.useTimeNumber}</td>
+              <td key={index + uuidv4()}>{val.facebookTimeUse}</td>
+              <td key={index + uuidv4()}>{val.youtubeTimeUse}</td>
+              <td key={index + uuidv4()}>{val.other}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan={7}>{pagination}</td>
+        </tr>
+      </tfoot>
+    </>
   );
 
   return (
-    <div className="usedTime padding-title">
-      {isLoading && <Loading />}
-      {isError && <Error />}
-      {!isError && !isLoading && tableUsedTime}
+    <div className="usedTime">
+      <Menu />
+      <div className="usedTime-container padding-title">
+        <Table striped bordered hover>
+          {tableUsedTimeHeader}
+          {!isLoading ? tableUsedTime : <Loading />}
+        </Table>
+      </div>
     </div>
   );
 };

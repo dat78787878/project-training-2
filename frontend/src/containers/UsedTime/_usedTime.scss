@@ -1,28 +1,34 @@
 .usedTime {
-    background-color: white;
-    position: relative;
-    height: 430px;
+  background-color: white;
+  height: 430px;
 
-    &-container {
-        &-table {
-            text-align: center;
-            width: 97%;
+  &-container {
 
-            div:nth-child(n) {
-                border: 1px solid;
+    text-align: center;
+    width: 97%;
+
+    table {
+      tfoot {
+        border-top: none !important;
+
+        tr {
+          border: none !important;
+
+          td {
+            border: none !important;
+            nav{
+              .pagination{
+                justify-content:flex-end;
+              }
+              li a {
+                text-decoration: none;
+                color: black
+              }
             }
+          }
         }
 
-        &-pagination {
-            padding: 30px;
-
-            .pagination {
-                justify-content: end;
-            }
-        }
+      }
     }
-
-    @include mobile {
-        display: none;
-    }
+  }
 }

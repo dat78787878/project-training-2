@@ -1,0 +1,27 @@
+.menu {
+    padding-top: 10px;
+    padding-left: 5px;
+
+    nav {
+        ul {
+            display: flex;
+            list-style: none;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 16px;
+                    margin-right: 10px;
+                }
+                .active {
+                    color: red
+                }
+
+                :hover {
+                    background-color: yellow
+                }
+            }
+        }
+    }
+}

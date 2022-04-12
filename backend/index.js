@@ -134,24 +134,28 @@ function randomDate(start, end) {
   );
 }
 app.get("/used_time", (req, res) => {
-  const { fromDate, toDate, currentPage } = req.query;
+  const { page } = req.query;
   var myArray = ["Android", "iOS"];
   const usedTimeData = [];
   let count = 0;
   while (count < 10) {
+    let facebookTimeUse_ = _.random(0, 20);
+    let youtubeTimeUse_ = _.random(0, 20);
+    let other_ = _.random(0, 20);
+    let total = facebookTimeUse_ + youtubeTimeUse_ + other_;
     let data = {
       userName: (Math.random() + 1).toString(36).substring(7),
       oSName: getArrayRandomElement(myArray),
       date: randomDate(new Date(2012, 0, 1), new Date()),
-      useTimeNumber: _.random(0, 20),
-      facebookTimeUse: _.random(0, 20),
-      youtubeTimeUse: _.random(0, 20),
-      other: _.random(0, 20),
+      useTimeNumber: total,
+      facebookTimeUse: facebookTimeUse_,
+      youtubeTimeUse: youtubeTimeUse_,
+      other: other_,
     };
     count += 1;
     usedTimeData.push(data);
   }
-  if (!fromDate || !toDate || !currentPage) {
+  if (!page) {
     res.status(404).send({
       status: 404,
       error: "Not found",
