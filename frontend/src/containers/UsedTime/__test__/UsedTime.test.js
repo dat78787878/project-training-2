@@ -140,10 +140,13 @@ describe('UsedTime', () => {
     );
     const link = getByRole('link', { expanded: false });
     const link2 = screen.getByTestId(10);
-    const svg = screen.getByTestId('arrow-circle-up');
     fireEvent.click(link2);
     fireEvent.click(link);
+    const svg = screen.getByTestId('arrow-circle-up');
     fireEvent.click(svg);
+    fireEvent.click(svg);
+    const svg1 = screen.getByTestId('arrow-circle-down');
+    fireEvent.click(svg1);
     expect(container).toMatchSnapshot();
   });
 });
