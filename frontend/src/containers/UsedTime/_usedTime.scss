@@ -5,17 +5,13 @@
   &-container {
     text-align: center;
     width: 97%;
-
-    table {
-      table-layout: fixed;
-
-      tbody {
-        height: 500px;
-      }
-
-      cursor: pointer;
-    }
   }
+}
+
+table {
+  table-layout: fixed;
+  height: 500px;
+  cursor: pointer;
 }
 
 tfoot {

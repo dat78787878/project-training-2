@@ -1,24 +1,15 @@
 .lineChart {
   background-color: #ffffff;
   height: 485px;
-  position: relative;
-  padding-left: 35px;
+  
   @include pc {
     height: 500px;
   }
   @include tablet {
-    padding-top: 20px;
     height: 495px;
-    margin-top: 10px;
   }
   @include mobile {
-    padding-top: 0px;
     height: 503px;
-    margin-top: 10px;
-    padding-left: 0px;
-  }
-  @include laptop {
-    margin-top: 10px;
   }
   &-container {
     &-menu {
@@ -37,6 +28,21 @@
         font-weight: bold;
         padding-right: 15px;
       }
+    }
+  }
+  .pl{
+    padding-left: 35px;
+    @include tablet {
+      padding-top: 20px;
+      margin-top: 10px;
+    }
+    @include mobile {
+      padding-top: 0px;
+      margin-top: 10px;
+      padding-left: 0px;
+    }
+    @include laptop {
+      margin-top: 10px;
     }
   }
 }

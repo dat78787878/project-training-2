@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import Menu from '../Menu/Menu';
-import Paginatinon from '../../components/Pagination/Paginatinon';
+import Paginatinon from '../Pagination/Paginatinon';
 
 const UsedTime = () => {
   const { usedTimeData, isLoading, isError } = useSelector((state) => state.usedTime);

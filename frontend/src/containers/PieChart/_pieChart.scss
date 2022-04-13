@@ -1,7 +1,6 @@
 .pieChart {
   background-color: white;
   height: 495px;
-  position: relative;
 
   @include pc {
     canvas {
