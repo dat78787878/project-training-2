@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import Menu from '../Menu/Menu';
-import Paginatinon from '../Pagination/Paginatinon';
+import Paginatinon from '../../components/Pagination/Paginatinon';
+import Filter from './Filter';
 
 const UsedTime = () => {
   const { usedTimeData, isLoading, isError } = useSelector((state) => state.usedTime);
@@ -127,7 +128,7 @@ const UsedTime = () => {
       <tfoot>
         <tr>
           <td colSpan={7}>
-            <Paginatinon page={page} setPage={setPage} sort={sort} totalPages={10} />
+            <Paginatinon page={page} setPage={setPage} sort={sort} totalPages={4} />
           </td>
         </tr>
       </tfoot>
@@ -137,11 +138,14 @@ const UsedTime = () => {
   return (
     <div className="usedTime">
       <Menu />
-      <div className="usedTime-container padding-title">
-        <Table striped bordered hover>
-          {tableUsedTimeHeader}
-          {tableUsedTimeBody}
-        </Table>
+      <div className=" padding-title">
+        <Filter setDataRender={setDataRender} usedTimeData={usedTimeData} />
+        <div className="usedTime-container">
+          <Table striped bordered hover>
+            {tableUsedTimeHeader}
+            {tableUsedTimeBody}
+          </Table>
+        </div>
       </div>
     </div>
   );

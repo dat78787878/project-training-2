@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component render component success 1`] = `
+<div>
+  <div
+    class="filter"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col"
+      >
+        <input
+          class="filter-input"
+          data-testid="input-name-used"
+          placeholder="Search"
+        />
+      </div>
+      <div
+        class="col"
+      >
+        <div
+          class="d-flex"
+        >
+          <label>
+            Select Date:
+          </label>
+          <input
+            data-testid="input-date-used"
+            name="trip-start"
+            type="date"
+            value="YYYY-MM-DD"
+          />
+        </div>
+      </div>
+      <div
+        class="col"
+      >
+        <select
+          aria-label="Default select example"
+          class="form-select"
+          data-testid="select-box-used"
+        >
+          <option>
+            Please select
+          </option>
+          <option
+            value="Android"
+          >
+            Android
+          </option>
+          <option
+            value="iOS"
+          >
+            iOS
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -75,7 +75,7 @@ exports[`DateRange change date range and dispatch 1`] = `
                   name="end-date"
                   placeholder="End Date"
                   type="text"
-                  value="04/12/2022"
+                  value="04/13/2022"
                 />
                 <p
                   class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
@@ -92,7 +92,7 @@ exports[`DateRange change date range and dispatch 1`] = `
         class="col-md-2 col-sm-12"
       >
         <a
-          href="/?fromDate_=Invalid date&toDate_=2022-04-12"
+          href="/?fromDate_=Invalid date&toDate_=2022-04-13"
         >
           <button
             class="m-1 btn btn-success"
@@ -146,7 +146,7 @@ exports[`DateRange renders correctly 1`] = `
                   name="start-date"
                   placeholder="Start Date"
                   type="text"
-                  value="04/12/2022"
+                  value="04/13/2022"
                 />
                 <p
                   class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
@@ -182,7 +182,7 @@ exports[`DateRange renders correctly 1`] = `
                   name="end-date"
                   placeholder="End Date"
                   type="text"
-                  value="04/12/2022"
+                  value="04/13/2022"
                 />
                 <p
                   class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
@@ -199,7 +199,7 @@ exports[`DateRange renders correctly 1`] = `
         class="col-md-2 col-sm-12"
       >
         <a
-          href="/?fromDate_=2022-04-12&toDate_=2022-04-12"
+          href="/?fromDate_=2022-04-13&toDate_=2022-04-13"
         >
           <button
             class="m-1 btn btn-success"
