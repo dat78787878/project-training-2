@@ -1,45 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
-import moment from 'moment';
 
-const Filter = ({ setDataRender, usedTimeData }) => {
+const Filter = ({
+  setDataRender,
+  usedTimeData,
+  search,
+  date,
+  type,
+  setSearch,
+  setDate,
+  setType
+}) => {
   const listOS = ['Android', 'iOS'];
-  const [type, setType] = useState('Please select');
-  const [dateSearch, setDateSearch] = useState('YYYY-MM-DD');
+
   const handleSearch = (e) => {
     e.preventDefault();
     const keyFilter = e.target.value.trim().toLowerCase();
-    if (keyFilter.length > 0) {
-      setDataRender((prev) => {
-        return prev.filter((val) => val.userName.toLowerCase().includes(keyFilter));
-      });
-    } else {
-      setDataRender(usedTimeData);
-    }
+    setSearch(keyFilter);
   };
 
   const handleSelect = (e) => {
     setDataRender(usedTimeData);
-    setDataRender((prev) => {
-      return prev.filter((val) => val.oSName.includes(e.target.value));
-    });
     setType(e.target.value);
-    if (e.target.value === 'Please select') {
-      setDataRender(usedTimeData);
-    }
   };
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e);
-    setDateSearch(e.target.value);
-    setDataRender((prev) => {
-      return prev.filter((val) => moment(val.date).format('YYYY-MM-DD').includes(e.target.value));
-    });
-    if (e.target.value === '') {
-      setDataRender(usedTimeData);
-    }
+    setDate(e.target.value);
   };
 
   return (
@@ -51,16 +39,17 @@ const Filter = ({ setDataRender, usedTimeData }) => {
             className="filter-input"
             onChange={handleSearch}
             placeholder="Search"
+            value={search}
           />
         </Col>
         <Col>
-          <div className="d-flex">
+          <div className="d-flex input-date">
             <label>Select Date:</label>
             <input
               data-testid="input-date-used"
               type="date"
               name="trip-start"
-              value={dateSearch}
+              value={date}
               onChange={handleChange}
             />
           </div>
