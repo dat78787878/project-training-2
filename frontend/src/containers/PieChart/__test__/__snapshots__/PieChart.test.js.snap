@@ -10,6 +10,7 @@ exports[`PieChart Component check loading 1`] = `
     >
       <div
         class="spinner-border text-success"
+        data-testid="loading"
       />
     </div>
   </div>
@@ -27,7 +28,9 @@ exports[`PieChart Component error task 1`] = `
       Error
       <img
         alt="not-found"
+        height="100px"
         src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+        width="100px"
       />
     </div>
   </div>

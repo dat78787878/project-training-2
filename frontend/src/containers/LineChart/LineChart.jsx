@@ -95,7 +95,7 @@ const LineChart = () => {
   );
 
   const lineChart = (
-    <div className="lineChart-container">
+    <div className="lineChart-container pl">
       <div className="lineChart-container-menu">
         {groupData.map((val, index) => {
           return (

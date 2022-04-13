@@ -52,10 +52,12 @@ const PieChart = () => {
   };
 
   return (
-    <div className="pieChart padding-title">
+    <div className="pieChart ">
       {isLoading && <Loading />}
       {isError && <Error />}
-      {!isError && !isLoading && <Doughnut data={data} options={options} />}
+      {!isError && !isLoading && (
+        <Doughnut className="padding-title" data={data} options={options} />
+      )}
     </div>
   );
 };

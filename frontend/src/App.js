@@ -4,6 +4,7 @@ import HeatChart from './containers/HeatChart/HeatChart';
 import LineChart from './containers/LineChart/LineChart';
 import DateRange from './containers/DateRange/DateRange';
 import ModalShow from './containers/PieChart/ModalShow';
+import Menu from './containers/Menu/Menu';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Col, Row } from 'react-bootstrap';
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <div className="header">
+        <Menu />
         <DateRange />
         <ModalShow />
       </div>

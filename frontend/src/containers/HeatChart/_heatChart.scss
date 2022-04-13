@@ -1,6 +1,5 @@
 .heatChart {
   background-color: #ffffff;
-  position: relative;
 
   @include pc {
     height: 400px;
@@ -36,7 +35,6 @@
 
       @include mobile {
         width: 86%;
-        ;
       }
     }
 
@@ -54,12 +52,10 @@
       visibility: hidden;
     }
   }
-
 }
 
 .barChart {
   padding-top: 70px;
-
 
   @include mobile {
     padding-top: 10px;

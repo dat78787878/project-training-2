@@ -1,6 +1,5 @@
 .rankingChart {
   background-color: white;
-  position: relative;
 
   @include pc {
     height: 400px;
@@ -12,14 +11,12 @@
 
   @include laptop {
     height: 370px;
-    padding-right: 20px;
   }
 
   height: 370px;
 
   @include laptop-l {
     height: 370px;
-    padding-right: 20px;
 
     canvas {
       height: 350px !important;
@@ -33,6 +30,12 @@
       height: 260px !important;
     }
   }
-
-
+  .pr{
+    @include laptop {
+      padding-right: 20px;
+    }
+    @include laptop-l {
+      padding-right: 20px;
+    }
+  }
 }

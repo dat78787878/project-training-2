@@ -27,7 +27,7 @@ app.get("/device_summary", (req, res) => {
   !device_types || !device_types.length
     ? setTimeout(() => {
         res.send(pieChart);
-      }, 5000)
+      }, 1000)
     : setTimeout(() => {
         res.send(
           _.map(device_types, (os) => ({
@@ -35,7 +35,7 @@ app.get("/device_summary", (req, res) => {
             y: _.random(0, 100),
           }))
         );
-      }, 5000);
+      }, 1000);
 });
 
 app.get("/ranking", (req, res) => {
@@ -58,7 +58,7 @@ app.get("/ranking", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(rankingChart);
-    }, 5000);
+    }, 1000);
   }
 });
 
@@ -91,7 +91,7 @@ app.get("/heat", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(heatChart);
-    }, 5000);
+    }, 1000);
   }
 });
 
@@ -120,7 +120,51 @@ app.get("/line", (req, res) => {
   } else {
     setTimeout(() => {
       res.send(lineChart);
-    }, 5000);
+    }, 1000);
+  }
+});
+function getArrayRandomElement(arr) {
+  if (arr && arr.length) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+}
+function randomDate(start, end) {
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  );
+}
+app.get("/used_time", (req, res) => {
+  const { page } = req.query;
+  var myArray = ["Android", "iOS"];
+  const usedTimeData = [];
+  let count = 0;
+  while (count < 10) {
+    let facebookTimeUse_ = _.random(0, 20);
+    let youtubeTimeUse_ = _.random(0, 20);
+    let other_ = _.random(0, 20);
+    let total = facebookTimeUse_ + youtubeTimeUse_ + other_;
+    let data = {
+      userName: (Math.random() + 1).toString(36).substring(7),
+      oSName: getArrayRandomElement(myArray),
+      date: randomDate(new Date(2012, 0, 1), new Date()),
+      useTimeNumber: total,
+      facebookTimeUse: facebookTimeUse_,
+      youtubeTimeUse: youtubeTimeUse_,
+      other: other_,
+    };
+    count += 1;
+    usedTimeData.push(data);
+  }
+  if (!page) {
+    res.status(404).send({
+      status: 404,
+      error: "Not found",
+    });
+    return;
+  } else {
+    setTimeout(() => {
+      res.send(usedTimeData);
+    }, 1000);
   }
 });
 
