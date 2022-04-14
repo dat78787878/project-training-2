@@ -16,7 +16,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=1&sort=undefined"
+            href="/used_time?page=1&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               class="page-link"
@@ -31,7 +31,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=3&sort=undefined"
+            href="/used_time?page=3&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               aria-label="Previous"
@@ -55,7 +55,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=3&sort=undefined"
+            href="/used_time?page=3&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               class="page-link"
@@ -70,7 +70,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item active"
         >
           <a
-            href="/used_time?page=4&sort=undefined"
+            href="/used_time?page=4&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               class="page-link"
@@ -85,7 +85,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=5&sort=undefined"
+            href="/used_time?page=5&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               class="page-link"
@@ -100,7 +100,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=5&sort=undefined"
+            href="/used_time?page=5&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               aria-expanded="false"
@@ -125,7 +125,7 @@ exports[`Loading component render component success 1`] = `
           class="page-item"
         >
           <a
-            href="/used_time?page=20&sort=undefined"
+            href="/used_time?page=20&sort=undefined&search=undefined&date=undefined&type=undefined"
           >
             <a
               class="page-link"

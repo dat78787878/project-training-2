@@ -47,13 +47,11 @@ const UsedTime = () => {
       });
     }
     if (date != '') {
-      console.log('abcxyz time');
       setDataRender((prev) => {
         return prev.filter((val) => moment(val.date).format('YYYY-MM-DD').includes(date));
       });
     }
     if (type != '' && type != 'Please select') {
-      console.log('abcxyz type');
       setDataRender((prev) => {
         return prev.filter((val) => val.oSName.includes(type));
       });

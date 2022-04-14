@@ -16,7 +16,7 @@ exports[`UsedTime Filter date 1`] = `
           <li>
             <a
               class=""
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -25,7 +25,7 @@ exports[`UsedTime Filter date 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -49,17 +49,15 @@ exports[`UsedTime Filter date 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
@@ -141,7 +139,9 @@ exports[`UsedTime Filter date 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 g5zxl
               </td>
@@ -164,7 +164,9 @@ exports[`UsedTime Filter date 1`] = `
                 7
               </td>
             </tr>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 pqjx1
               </td>
@@ -207,7 +209,7 @@ exports[`UsedTime Filter date 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          href="/used_time?page=1&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -222,7 +224,7 @@ exports[`UsedTime Filter date 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          href="/used_time?page=2&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -237,7 +239,7 @@ exports[`UsedTime Filter date 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          href="/used_time?page=3&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -252,7 +254,7 @@ exports[`UsedTime Filter date 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          href="/used_time?page=4&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -292,7 +294,7 @@ exports[`UsedTime Filter search 1`] = `
           <li>
             <a
               class=""
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -301,7 +303,7 @@ exports[`UsedTime Filter search 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -325,22 +327,20 @@ exports[`UsedTime Filter search 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
                 type="date"
-                value="YYYY-MM-DD"
+                value=""
               />
             </div>
           </div>
@@ -417,7 +417,9 @@ exports[`UsedTime Filter search 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 g5zxl
               </td>
@@ -440,7 +442,9 @@ exports[`UsedTime Filter search 1`] = `
                 7
               </td>
             </tr>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 pqjx1
               </td>
@@ -483,7 +487,7 @@ exports[`UsedTime Filter search 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          href="/used_time?page=1&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -498,7 +502,7 @@ exports[`UsedTime Filter search 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          href="/used_time?page=2&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -513,7 +517,7 @@ exports[`UsedTime Filter search 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          href="/used_time?page=3&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -528,7 +532,7 @@ exports[`UsedTime Filter search 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          href="/used_time?page=4&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -568,7 +572,7 @@ exports[`UsedTime Filter select type 1`] = `
           <li>
             <a
               class=""
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -577,7 +581,7 @@ exports[`UsedTime Filter select type 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -601,22 +605,20 @@ exports[`UsedTime Filter select type 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
                 type="date"
-                value="YYYY-MM-DD"
+                value=""
               />
             </div>
           </div>
@@ -693,7 +695,9 @@ exports[`UsedTime Filter select type 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 g5zxl
               </td>
@@ -716,7 +720,9 @@ exports[`UsedTime Filter select type 1`] = `
                 7
               </td>
             </tr>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 pqjx1
               </td>
@@ -759,7 +765,7 @@ exports[`UsedTime Filter select type 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          href="/used_time?page=1&sort=&search=&date=&type=Please select"
                         >
                           <a
                             class="page-link"
@@ -774,7 +780,7 @@ exports[`UsedTime Filter select type 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          href="/used_time?page=2&sort=&search=&date=&type=Please select"
                         >
                           <a
                             class="page-link"
@@ -789,7 +795,7 @@ exports[`UsedTime Filter select type 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          href="/used_time?page=3&sort=&search=&date=&type=Please select"
                         >
                           <a
                             class="page-link"
@@ -804,7 +810,7 @@ exports[`UsedTime Filter select type 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          href="/used_time?page=4&sort=&search=&date=&type=Please select"
                         >
                           <a
                             class="page-link"
@@ -845,7 +851,7 @@ exports[`UsedTime check loading 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -853,7 +859,7 @@ exports[`UsedTime check loading 1`] = `
           <li>
             <a
               class=""
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -877,22 +883,20 @@ exports[`UsedTime check loading 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
                 type="date"
-                value="YYYY-MM-DD"
+                value=""
               />
             </div>
           </div>
@@ -926,6 +930,7 @@ exports[`UsedTime check loading 1`] = `
       >
         <table
           class="table table-striped table-bordered table-hover"
+          style="height: 500px;"
         >
           <thead>
             <tr>
@@ -1003,7 +1008,7 @@ exports[`UsedTime check loading 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          href="/used_time?page=1&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1018,7 +1023,7 @@ exports[`UsedTime check loading 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          href="/used_time?page=2&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1033,7 +1038,7 @@ exports[`UsedTime check loading 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          href="/used_time?page=3&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1048,7 +1053,7 @@ exports[`UsedTime check loading 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          href="/used_time?page=4&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1089,7 +1094,7 @@ exports[`UsedTime error task 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -1097,7 +1102,7 @@ exports[`UsedTime error task 1`] = `
           <li>
             <a
               class=""
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -1121,22 +1126,20 @@ exports[`UsedTime error task 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
                 type="date"
-                value="YYYY-MM-DD"
+                value=""
               />
             </div>
           </div>
@@ -1240,7 +1243,7 @@ exports[`UsedTime error task 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=1&sort="
+                          href="/used_time?page=1&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1255,7 +1258,7 @@ exports[`UsedTime error task 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=2&sort="
+                          href="/used_time?page=2&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1270,7 +1273,7 @@ exports[`UsedTime error task 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort="
+                          href="/used_time?page=3&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1285,7 +1288,7 @@ exports[`UsedTime error task 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort="
+                          href="/used_time?page=4&sort=&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1325,7 +1328,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
           <li>
             <a
               class=""
-              href="/"
+              href="/?fromDate_=&toDate_="
             >
               Anlysis
             </a>
@@ -1334,7 +1337,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
             <a
               aria-current="page"
               class="active"
-              href="/used_time"
+              href="/used_time?page=1&sort=&search=&date=&type="
             >
               Used time
             </a>
@@ -1358,22 +1361,20 @@ exports[`UsedTime handle Click UsedTime 1`] = `
               class="filter-input"
               data-testid="input-name-used"
               placeholder="Search"
+              value=""
             />
           </div>
           <div
             class="col"
           >
             <div
-              class="d-flex"
+              class="d-flex input-date"
             >
-              <label>
-                Select Date:
-              </label>
               <input
                 data-testid="input-date-used"
                 name="trip-start"
                 type="date"
-                value="YYYY-MM-DD"
+                value=""
               />
             </div>
           </div>
@@ -1450,7 +1451,9 @@ exports[`UsedTime handle Click UsedTime 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 g5zxl
               </td>
@@ -1473,7 +1476,9 @@ exports[`UsedTime handle Click UsedTime 1`] = `
                 7
               </td>
             </tr>
-            <tr>
+            <tr
+              style="height: 80px;"
+            >
               <td>
                 pqjx1
               </td>
@@ -1516,7 +1521,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=1&sort=asc"
+                          href="/used_time?page=1&sort=asc&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1531,7 +1536,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
                         class="page-item active"
                       >
                         <a
-                          href="/used_time?page=2&sort=asc"
+                          href="/used_time?page=2&sort=asc&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1546,7 +1551,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=3&sort=asc"
+                          href="/used_time?page=3&sort=asc&search=&date=&type="
                         >
                           <a
                             class="page-link"
@@ -1561,7 +1566,7 @@ exports[`UsedTime handle Click UsedTime 1`] = `
                         class="page-item"
                       >
                         <a
-                          href="/used_time?page=4&sort=asc"
+                          href="/used_time?page=4&sort=asc&search=&date=&type="
                         >
                           <a
                             class="page-link"
