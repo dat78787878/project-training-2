@@ -44,7 +44,6 @@ const Filter = ({
         </Col>
         <Col>
           <div className="d-flex input-date">
-            <label>Select Date:</label>
             <input
               data-testid="input-date-used"
               type="date"
