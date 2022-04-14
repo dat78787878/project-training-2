@@ -7,10 +7,10 @@ const Menu = () => {
       <nav id="nav" role="navigation">
         <ul>
           <li>
-            <NavLink to="/">Anlysis</NavLink>
+            <NavLink to="/?fromDate_=&toDate_=">Anlysis</NavLink>
           </li>
           <li>
-            <NavLink to="/used_time">Used time</NavLink>
+            <NavLink to="/used_time?page=1&sort=&search=&date=&type=">Used time</NavLink>
           </li>
         </ul>
       </nav>

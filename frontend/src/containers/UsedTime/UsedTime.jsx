@@ -140,7 +140,7 @@ const UsedTime = () => {
           !isLoading &&
           dataRender.map((val, index) => {
             return (
-              <tr key={index + uuidv4()}>
+              <tr key={index + uuidv4()} style={{ height: '80px' }}>
                 <td key={index + uuidv4()}>{val.userName}</td>
                 <td key={index + uuidv4()}>{val.oSName}</td>
                 <td key={index + uuidv4()}>{moment(val.date).format('YYYY-MM-DD')}</td>
@@ -172,7 +172,7 @@ const UsedTime = () => {
 
   return (
     <div className="usedTime">
-      <Menu />
+      <Menu page={page} sort={sort} search={search} date={date} type={type} />
       <div className=" padding-title">
         <Filter
           setDataRender={setDataRender}
@@ -185,7 +185,7 @@ const UsedTime = () => {
           setType={setType}
         />
         <div className="usedTime-container">
-          <Table striped bordered hover>
+          <Table striped bordered hover style={{ height: isLoading ? '500px' : '' }}>
             {tableUsedTimeHeader}
             {tableUsedTimeBody}
           </Table>

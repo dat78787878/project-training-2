@@ -1,6 +1,6 @@
 .usedTime {
   background-color: white;
-  height: 430px;
+  height: 530px;
 
   &-container {
     text-align: center;
@@ -10,8 +10,13 @@
 
 table {
   table-layout: fixed;
-  height: 500px;
   cursor: pointer;
+
+  tbody {
+    tr {
+      height: 80px;
+    }
+  }
 }
 
 tfoot {
