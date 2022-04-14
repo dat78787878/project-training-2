@@ -26,6 +26,8 @@ const DateRange = () => {
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
+    params.fromDate_ ? '' : (params.fromDate_ = moment(new Date()).format('YYYY-MM-DD'));
+    params.toDate_ ? '' : (params.toDate_ = moment(new Date()).format('YYYY-MM-DD'));
     setStartDate(moment(params.fromDate_));
     setEndDate(moment(params.toDate_));
     dispatch(

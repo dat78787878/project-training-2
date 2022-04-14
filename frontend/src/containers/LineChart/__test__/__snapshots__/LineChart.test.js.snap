@@ -43,7 +43,7 @@ exports[`LineChart component get data day 1`] = `
     class="lineChart"
   >
     <div
-      class="lineChart-container"
+      class="lineChart-container pl"
     >
       <div
         class="lineChart-container-menu"
@@ -93,7 +93,7 @@ exports[`LineChart component get data month 1`] = `
     class="lineChart"
   >
     <div
-      class="lineChart-container"
+      class="lineChart-container pl"
     >
       <div
         class="lineChart-container-menu"
@@ -143,7 +143,7 @@ exports[`LineChart component get data week 1`] = `
     class="lineChart"
   >
     <div
-      class="lineChart-container"
+      class="lineChart-container pl"
     >
       <div
         class="lineChart-container-menu"
@@ -193,7 +193,7 @@ exports[`LineChart component success task 1`] = `
     class="lineChart"
   >
     <div
-      class="lineChart-container"
+      class="lineChart-container pl"
     >
       <div
         class="lineChart-container-menu"

@@ -29,10 +29,6 @@ describe('UsedTime', () => {
         usedTimeData: [],
         isLoading: true,
         isError: false
-      },
-      dateRange: {
-        fromDate: '2021-08-08',
-        toDate: '2021-08-09'
       }
     };
     const { container } = render(
@@ -49,10 +45,6 @@ describe('UsedTime', () => {
         usedTimeData: [],
         isLoading: false,
         isError: true
-      },
-      dateRange: {
-        fromDate: '2021-08-08',
-        toDate: '2021-08-09'
       }
     };
     const { container } = render(
@@ -61,45 +53,6 @@ describe('UsedTime', () => {
       </BrowserRouter>
     );
     expect(screen.getByText('no data')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-  it('render UsedTime', () => {
-    mockAppState = {
-      usedTime: {
-        usedTimeData: [
-          {
-            userName: 'pqjx1',
-            oSName: 'iOS',
-            date: '2016-04-03T13:46:50.804Z',
-            useTimeNumber: 11,
-            facebookTimeUse: 7,
-            youtubeTimeUse: 9,
-            other: 18
-          },
-          {
-            userName: 'g5zxl',
-            oSName: 'Android',
-            date: '2017-04-13T02:05:28.816Z',
-            useTimeNumber: 7,
-            facebookTimeUse: 6,
-            youtubeTimeUse: 8,
-            other: 7
-          }
-        ],
-        isLoading: false,
-        isError: false
-      },
-      dateRange: {
-        fromDate: '2021-08-08',
-        toDate: '2021-08-09'
-      }
-    };
-    const { container, getByText } = render(
-      <BrowserRouter>
-        <UsedTime />
-      </BrowserRouter>
-    );
-    expect(getByText('iOS')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
   it('handle Click UsedTime', () => {
@@ -127,26 +80,58 @@ describe('UsedTime', () => {
         ],
         isLoading: false,
         isError: false
-      },
-      dateRange: {
-        fromDate: '2021-08-08',
-        toDate: '2021-08-09'
       }
     };
-    const { container, getByRole } = render(
+    const { container } = render(
       <BrowserRouter>
         <UsedTime />
       </BrowserRouter>
     );
-    const link = getByRole('link', { expanded: false });
-    const link2 = screen.getByTestId(10);
+    const link2 = screen.getByTestId(2);
     fireEvent.click(link2);
-    fireEvent.click(link);
     const svg = screen.getByTestId('arrow-circle-up');
     fireEvent.click(svg);
     fireEvent.click(svg);
     const svg1 = screen.getByTestId('arrow-circle-down');
     fireEvent.click(svg1);
+    expect(container).toMatchSnapshot();
+  });
+  it('Filter search', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <UsedTime />
+      </BrowserRouter>
+    );
+    const inputFilter = screen.getByTestId('input-name-used');
+    fireEvent.change(inputFilter, { target: { value: '7' } });
+    expect(inputFilter.value).toEqual('7');
+    fireEvent.change(inputFilter, { target: { value: '' } });
+    expect(inputFilter.value).toEqual('');
+    expect(container).toMatchSnapshot();
+  });
+  it('Filter select type', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <UsedTime />
+      </BrowserRouter>
+    );
+    const element = screen.getByTestId('select-box-used');
+    fireEvent.click(element);
+    fireEvent.change(element, { target: { value: '7' } });
+    fireEvent.change(element, { target: { value: 'Please select' } });
+    expect(container).toMatchSnapshot();
+  });
+  it('Filter date', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <UsedTime />
+      </BrowserRouter>
+    );
+    const inputFilter = screen.getByTestId('input-date-used');
+    fireEvent.change(inputFilter, { target: { value: '2022-04-13' } });
+    expect(inputFilter.value).toEqual('2022-04-13');
+    fireEvent.change(inputFilter, { target: { value: '' } });
+    expect(inputFilter.value).toEqual('');
     expect(container).toMatchSnapshot();
   });
 });

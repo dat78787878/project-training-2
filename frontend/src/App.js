@@ -7,7 +7,6 @@ import ModalShow from './containers/PieChart/ModalShow';
 import Menu from './containers/Menu/Menu';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Col, Row } from 'react-bootstrap';
-
 function App() {
   return (
     <>

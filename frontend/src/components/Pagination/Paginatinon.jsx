@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Paginatinon = ({ page, setPage, sort, totalPages }) => {
+const Paginatinon = ({ page, setPage, sort, totalPages, search, type, date }) => {
   const range = (from, to, step = 1) => {
     let i = from;
     const range = [];
@@ -84,7 +84,10 @@ const Paginatinon = ({ page, setPage, sort, totalPages }) => {
             if (item == 'LEFT')
               return (
                 <li key={index} className="page-item">
-                  <Link to={`/used_time?page=${parseInt(page) - 1}&sort=${sort}`}>
+                  <Link
+                    to={`/used_time?page=${
+                      parseInt(page) - 1
+                    }&sort=${sort}&search=${search}&date=${date}&type=${type}`}>
                     <a
                       className="page-link"
                       href="#"
@@ -100,7 +103,10 @@ const Paginatinon = ({ page, setPage, sort, totalPages }) => {
             if (item === 'RIGHT')
               return (
                 <li key={index} className="page-item">
-                  <Link to={`/used_time?page=${parseInt(page) + 1}&sort=${sort}`}>
+                  <Link
+                    to={`/used_time?page=${
+                      parseInt(page) + 1
+                    }&sort=${sort}&search=${search}&date=${date}&type=${type}`}>
                     <a
                       className="page-link"
                       href="#"
@@ -116,7 +122,8 @@ const Paginatinon = ({ page, setPage, sort, totalPages }) => {
 
             return (
               <li key={index} className={`page-item${page == item ? ' active' : ''}`}>
-                <Link to={`/used_time?page=${item}&sort=${sort}`}>
+                <Link
+                  to={`/used_time?page=${item}&sort=${sort}&search=${search}&date=${date}&type=${type}`}>
                   <a
                     className="page-link"
                     data-testid={item}
