@@ -13,6 +13,9 @@ table {
   cursor: pointer;
 
   tbody {
+    td{
+      vertical-align: middle;
+    }
     tr {
       height: 80px;
     }
