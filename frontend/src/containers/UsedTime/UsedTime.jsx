@@ -6,11 +6,12 @@ import { getData } from '../../redux/usedTime/actions';
 import Loading from '../../components/Loading/Loading';
 import { Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import Menu from '../Menu/Menu';
 import Paginatinon from '../../components/Pagination/Paginatinon';
 import Filter from './Filter';
+import ModalTable from './ModalTable';
 
 const UsedTime = () => {
   const { usedTimeData, isLoading, isError } = useSelector((state) => state.usedTime);
@@ -20,9 +21,11 @@ const UsedTime = () => {
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('asc');
   const [search, setSearch] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState();
   const [type, setType] = useState('');
-
+  const [show, setShow] = useState(false);
+  const [typeModal, setTypeModal] = useState('');
+  const [positonEdit, setPosotionEdit] = useState();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData([page, sort, search, date, type]));
@@ -91,6 +94,12 @@ const UsedTime = () => {
     [usedTimeData]
   );
 
+  const handleShowModalEdit = (index) => {
+    setShow(true);
+    setTypeModal('Edit');
+    setPosotionEdit(index);
+  };
+
   const tableUsedTimeHeader = (
     <thead>
       <tr>
@@ -116,6 +125,7 @@ const UsedTime = () => {
         {listTitleNumber.map((val, index) => {
           return <th key={index + uuidv4()}>{val}</th>;
         })}
+        <th>Edit</th>
       </tr>
     </thead>
   );
@@ -124,14 +134,14 @@ const UsedTime = () => {
       <tbody>
         {isLoading && (
           <tr>
-            <td colSpan={7}>
+            <td colSpan={8}>
               <Loading />
             </td>
           </tr>
         )}
         {isError && (
           <tr>
-            <td colSpan={7}>no data</td>
+            <td colSpan={8}>no data</td>
           </tr>
         )}
         {!isError &&
@@ -146,13 +156,20 @@ const UsedTime = () => {
                 <td key={index + uuidv4()}>{val.facebookTimeUse}</td>
                 <td key={index + uuidv4()}>{val.youtubeTimeUse}</td>
                 <td key={index + uuidv4()}>{val.other}</td>
+                <td key={index + uuidv4()}>
+                  <FontAwesomeIcon
+                    icon={faPenToSquare}
+                    data-testid={'edit-button' + index}
+                    onClick={() => handleShowModalEdit(index)}
+                  />
+                </td>
               </tr>
             );
           })}
       </tbody>
       <tfoot>
         <tr>
-          <td colSpan={7}>
+          <td colSpan={8}>
             <Paginatinon
               totalPages={4}
               page={page}
@@ -170,6 +187,13 @@ const UsedTime = () => {
 
   return (
     <div className="usedTime">
+      <ModalTable
+        show={show}
+        setShow={setShow}
+        typeModal={typeModal}
+        positonEdit={positonEdit}
+        usedTimeData={usedTimeData}
+      />
       <Menu page={page} sort={sort} search={search} date={date} type={type} />
       <div className=" padding-title">
         <Filter
@@ -181,6 +205,10 @@ const UsedTime = () => {
           setDate={setDate}
           type={type}
           setType={setType}
+          show={show}
+          setShow={setShow}
+          setTypeModal={setTypeModal}
+          typeModal={typeModal}
         />
         <div className="usedTime-container">
           <Table striped bordered hover style={{ height: isLoading ? '500px' : '' }}>

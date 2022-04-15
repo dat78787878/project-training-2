@@ -134,4 +134,80 @@ describe('UsedTime', () => {
     expect(inputFilter.value).toEqual('');
     expect(container).toMatchSnapshot();
   });
+  it('add element', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <UsedTime />
+      </BrowserRouter>
+    );
+    const inputFilter = screen.getByTestId('add-button');
+    fireEvent.click(inputFilter);
+
+    const inputFilter1 = screen.getByTestId('UserNameI');
+    fireEvent.change(inputFilter1, { target: { value: '123' } });
+    expect(inputFilter1.value).toEqual('123');
+
+    const inputFilter2 = screen.getByTestId('OSNameI');
+    fireEvent.change(inputFilter2, { target: { value: 'Android' } });
+    expect(inputFilter2.value).toEqual('Android');
+
+    const inputFilter3 = screen.getByTestId('DateI');
+    fireEvent.change(inputFilter3, { target: { value: '2022-04-13' } });
+    expect(inputFilter3.value).toEqual('2022-04-13');
+
+    const inputFilter4 = screen.getByTestId('YouTubeI');
+    fireEvent.change(inputFilter4, { target: { value: 12 } });
+    expect(inputFilter4.value).toEqual('12');
+
+    const inputFilter5 = screen.getByTestId('FacebookI');
+    fireEvent.change(inputFilter5, { target: { value: 12 } });
+    expect(inputFilter5.value).toEqual('12');
+
+    const inputFilter6 = screen.getByTestId('OtherI');
+    fireEvent.change(inputFilter6, { target: { value: 12 } });
+    expect(inputFilter6.value).toEqual('12');
+
+    const inputFilter7 = screen.getByTestId('btnOK');
+    fireEvent.click(inputFilter7);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('edit element', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <UsedTime />
+      </BrowserRouter>
+    );
+    const inputFilter = screen.getByTestId('edit-button0');
+    fireEvent.click(inputFilter);
+
+    const inputFilter1 = screen.getByTestId('UserNameI');
+    fireEvent.change(inputFilter1, { target: { value: '123' } });
+    expect(inputFilter1.value).toEqual('123');
+
+    const inputFilter2 = screen.getByTestId('OSNameI');
+    fireEvent.change(inputFilter2, { target: { value: 'Android' } });
+    expect(inputFilter2.value).toEqual('Android');
+
+    const inputFilter3 = screen.getByTestId('DateI');
+    fireEvent.change(inputFilter3, { target: { value: '2022-04-13' } });
+    expect(inputFilter3.value).toEqual('2022-04-13');
+
+    const inputFilter4 = screen.getByTestId('YouTubeI');
+    fireEvent.change(inputFilter4, { target: { value: 12 } });
+    expect(inputFilter4.value).toEqual('12');
+
+    const inputFilter5 = screen.getByTestId('FacebookI');
+    fireEvent.change(inputFilter5, { target: { value: 12 } });
+    expect(inputFilter5.value).toEqual('12');
+
+    const inputFilter6 = screen.getByTestId('OtherI');
+    fireEvent.change(inputFilter6, { target: { value: 12 } });
+    expect(inputFilter6.value).toEqual('12');
+
+    const inputFilter7 = screen.getByTestId('btnOK');
+    fireEvent.click(inputFilter7);
+    expect(container).toMatchSnapshot();
+  });
 });

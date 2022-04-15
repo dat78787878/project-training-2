@@ -1,0 +1,25 @@
+.modal-custom-table {
+    .modal-content {
+        width: 86%;
+
+        .modal-body {
+            input {
+                margin: 5px
+            }
+
+            .modal-text-date {
+                width: 190px;
+                padding: 2px;
+            }
+
+        }
+    }
+
+    select {
+        border: 1px solid;
+        display: inline-block;
+        padding: 3px;
+        margin: 5px;
+        width: 47%;
+    }
+}
