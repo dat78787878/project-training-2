@@ -376,7 +376,6 @@ app.get("/used_time", (req, res) => {
 app.post("/used_time", (req, res) => {
   data.unshift(req.body.params.newUsedTimeData);
   const usedTimeData = data.slice(0, 5);
-  console.log(usedTimeData);
   setTimeout(() => {
     res.send(usedTimeData);
   }, 1000);
@@ -385,7 +384,6 @@ app.post("/used_time", (req, res) => {
 app.put("/used_time", (req, res) => {
   data[req.body.params.positonEdit] = req.body.params.newUsedTimeData
   const usedTimeData = data.slice(0, 5);
-  console.log(usedTimeData);
   setTimeout(() => {
     res.send(usedTimeData);
   }, 1000);

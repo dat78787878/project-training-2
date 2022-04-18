@@ -1,7 +1,5 @@
 .modal-custom-table {
     .modal-content {
-        width: 86%;
-
         .modal-body {
             input {
                 margin: 5px
@@ -20,6 +18,27 @@
         display: inline-block;
         padding: 3px;
         margin: 5px;
-        width: 47%;
+        width: 190px;
+    }
+   
+    .modal-header{
+        display: grid;
+        .modal-error{
+            color: rgb(236, 21, 21);
+        }
+    }
+}
+
+.modal-contain {
+    display: flex;
+
+    .modal-item {
+        width: 49%;
+        margin:5px;
+        .modal-text-title {
+            font-weight: bold;
+            margin-left: 5px;
+            font-size: 16px;
+        }
     }
 }
