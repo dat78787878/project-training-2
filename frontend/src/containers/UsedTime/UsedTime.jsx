@@ -44,7 +44,6 @@ const UsedTime = () => {
       setDataRender(dataSort);
     }
     if (search != '') {
-      console.log('abcxyz search');
       setDataRender((prev) => {
         return prev.filter((val) => val.userName.toLowerCase().includes(search));
       });

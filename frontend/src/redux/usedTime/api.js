@@ -22,8 +22,6 @@ const postUsedTimeData = (newUsedTimeData) => {
 };
 
 const putUsedTimeData = (newUsedTimeData, positonEdit) => {
-  console.log(newUsedTimeData);
-  console.log(positonEdit);
   return axios.put(BASE_URL + '/used_time', {
     params: {
       newUsedTimeData,
