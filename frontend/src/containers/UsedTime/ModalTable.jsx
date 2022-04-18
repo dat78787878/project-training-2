@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
+import ErrorValidate from './ErrorValidate';
 
 const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => {
   const listOS = ['Android', 'iOS'];
@@ -13,9 +14,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
     userNameI: '',
     oSNameI: '',
     dateI: moment(new Date()).format('YYYY-MM-DD'),
-    youtubeI: 0,
-    facebookI: 0,
-    otherI: 0
+    youtubeI: '',
+    facebookI: '',
+    otherI: ''
   });
   const [errors, setErrors] = useState([]);
   const notifyS = () => toast.success('Succes');
@@ -25,9 +26,17 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
   useEffect(() => {
     if (typeModal === 'Edit') {
       const data = usedTimeData[positonEdit];
-      setValues(data);
+      setValues({
+        userNameI: data.userName,
+        oSNameI: data.oSName,
+        dateI: data.date,
+        youtubeI: data.youtubeTimeUse,
+        facebookI: data.facebookTimeUse,
+        otherI: data.other
+      });
     }
   }, [positonEdit, usedTimeData]);
+
   const onHide = () => {
     setShow(false);
     setErrors([]);
@@ -35,9 +44,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
       userNameI: '',
       oSNameI: '',
       dateI: moment(new Date()).format('YYYY-MM-DD'),
-      youtubeI: 0,
-      facebookI: 0,
-      otherI: 0
+      youtubeI: '',
+      facebookI: '',
+      otherI: ''
     });
   };
   const handleChange = (event) => {
@@ -89,9 +98,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
         userNameI: '',
         oSNameI: '',
         dateI: moment(new Date()).format('YYYY-MM-DD'),
-        youtubeI: 0,
-        facebookI: 0,
-        otherI: 0
+        youtubeI: '',
+        facebookI: '',
+        otherI: ''
       });
       notifyS();
       setErrors([]);
@@ -102,9 +111,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
         userNameI: '',
         oSNameI: '',
         dateI: moment(new Date()).format('YYYY-MM-DD'),
-        youtubeI: 0,
-        facebookI: 0,
-        otherI: 0
+        youtubeI: '',
+        facebookI: '',
+        otherI: ''
       });
       notifyS();
       setErrors([]);
@@ -122,11 +131,7 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
         aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header>
           <Modal.Title>{typeModal}</Modal.Title>
-          <div className="modal-error">
-            {errors.map((error) => (
-              <p key={error}>Error: {error}</p>
-            ))}
-          </div>
+          <ErrorValidate errors={errors} />
         </Modal.Header>
         <Modal.Body>
           <div className="modal-contain">
@@ -167,11 +172,10 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
               <div className="modal-text-title">Date</div>
               <input
                 className="modal-text-date"
-                defaultValue={values.dateI}
+                value={moment(values.dateI).format('YYYY-MM-DD')}
                 onChange={handleChange}
                 placeholder="Date"
                 type="date"
-                required
                 data-testid="DateI"
                 name="dateI"
               />
@@ -181,10 +185,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
               <div className="modal-text-title">Youtube</div>
               <input
                 className="modal-text-input"
-                defaultValue={values.youtubeI}
+                value={values.youtubeI}
                 onChange={handleChange}
-                placeholder="YouTube"
-                required
+                placeholder="0"
                 data-testid="YouTubeI"
                 name="youtubeI"
               />
@@ -196,10 +199,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
               <div className="modal-text-title">Facebook</div>
               <input
                 className="modal-text-input"
-                defaultValue={values.facebookI}
+                value={values.facebookI}
                 onChange={handleChange}
-                placeholder="Facebook"
-                required
+                placeholder="0"
                 data-testid="FacebookI"
                 name="facebookI"
               />
@@ -209,10 +211,9 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
               <div className="modal-text-title">Other</div>
               <input
                 className="modal-text-input"
-                defaultValue={values.otherI}
+                value={values.otherI}
                 onChange={handleChange}
-                placeholder="Other"
-                required
+                placeholder="0"
                 data-testid="OtherI"
                 name="otherI"
               />
@@ -220,11 +221,11 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData }) => 
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" data-testid="btnOK" onClick={handleOKButtonClick}>
-            OK
-          </Button>
           <Button variant="secondary" data-testid="btnCancel" onClick={onHide}>
             Cancel
+          </Button>
+          <Button variant="success" data-testid="btnOK" onClick={handleOKButtonClick}>
+            OK
           </Button>
         </Modal.Footer>
       </Modal>

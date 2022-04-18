@@ -1,26 +1,26 @@
-  .modal {
-    &-content {
-      border-radius: 5% !important;
-    }
+.modal {
+  &-content {
+    border-radius: 5% !important;
+  }
 
-    &-body {
-      padding: 0px !important;
-      margin: 14px;
-    }
+  &-body {
+    padding: 0px !important;
+    margin: 14px;
+  }
 
-    &-custom {
-      width: 14% !important;
-      position: absolute !important;
-      top: 40px;
-      left: 50px;
-      border: 3px solid #0086c4;
-      border-radius: 5%;
+  &-custom {
+    width: 14% !important;
+    position: absolute !important;
+    top: 40px;
+    left: 50px;
+    border: 3px solid #0086c4;
+    border-radius: 5%;
 
-      &-input {
-        width: 100%;
-        border: none;
-        outline: none;
-        border-bottom: 3px solid #3cb4ec;
-      }
+    &-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-bottom: 3px solid #3cb4ec;
     }
   }
+}
