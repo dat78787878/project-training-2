@@ -17,17 +17,17 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
     dateI: moment(new Date()).format('YYYY-MM-DD'),
     youtubeI: '',
     facebookI: '',
-    otherI: ''
+    otherI: '',
+    isInput: ''
   };
-  const [variables, setVariables] = useState(initvalues);
+  const [initData, setInitData] = useState(initvalues);
   const notifyS = () => toast.success('Success');
   const dispatch = useDispatch();
-  const [errorNumber, setErrorNumber] = useState(false);
 
   useEffect(() => {
     if (typeModal === 'Edit') {
       const data = usedTimeData[positonEdit];
-      setVariables({
+      setInitData({
         userNameI: data.userName,
         oSNameI: data.oSName,
         dateI: data.date,
@@ -40,77 +40,95 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
 
   const onHide = () => {
     setTypeModal('');
-    setVariables(initvalues);
+    setInitData(initvalues);
     setShow(false);
   };
-  console.log('variables', variables);
+
   const formik = useFormik({
     enableReinitialize: true,
-    initialValues: variables,
-    validationSchema: Yup.object({
-      userNameI: Yup.string()
-        .required('Required!')
-        .min(8, 'Mininum 8 characters')
-        .max(255, 'Maximum 255 characters'),
-      oSNameI: Yup.string().required('Required!'),
-      dateI: Yup.string().required('Required'),
-      facebookI: Yup.number()
-        .typeError('you must specify a number')
-        .min(0, 'Min value 0.')
-        .max(500, 'Max value 500.'),
-      youtubeI: Yup.number()
-        .typeError('you must specify a number')
-        .min(0, 'Min value 0.')
-        .max(500, 'Max value 500.'),
-      otherI: Yup.number()
-        .typeError('you must specify a number')
-        .min(0, 'Min value 0.')
-        .max(500, 'Max value 500.')
-    }),
-    onSubmit: (variables) => {
-      if (variables.youtubeI == '' && variables.facebookI == '' && variables.otherI == '') {
-        formik.errors.youtubeI = 'Enter facebook youtube or other';
-        formik.errors.facebookI = 'Enter facebook youtube or other';
-        formik.errors.otherI = 'Enter facebook youtube or other';
-        setErrorNumber(true);
-      } else {
-        if (variables.facebookI == '') {
-          variables.facebookI = '0';
-        }
-        if (variables.youtubeI == '') {
-          variables.youtubeI = '0';
-        }
-        if (variables.otherI == '') {
-          variables.otherI = '0';
-        }
-        const totalI =
-          parseInt(variables.youtubeI) + parseInt(variables.facebookI) + parseInt(variables.otherI);
-        const newUsedTimeData = {
-          userName: variables.userNameI,
-          oSName: variables.oSNameI,
-          date: variables.dateI,
-          useTimeNumber: totalI,
-          facebookTimeUse: parseInt(variables.facebookI),
-          youtubeTimeUse: parseInt(variables.youtubeI),
-          other: parseInt(variables.otherI)
-        };
-        if (typeModal === 'Add') {
-          dispatch(postData(newUsedTimeData));
-          variables.userNameI = '';
-          variables.oSNameI = '';
-          variables.facebookI = '';
-          variables.youtubeI = '';
-          variables.otherI = '';
-        }
-        if (typeModal === 'Edit') {
-          dispatch(putData([newUsedTimeData, positonEdit]));
-        }
-        onHide();
-        notifyS();
+    initialValues: initData,
+    validationSchema: Yup.object(
+      {
+        userNameI: Yup.string()
+          .required('Required!')
+          .min(8, 'Mininum 8 characters')
+          .max(255, 'Maximum 255 characters'),
+        oSNameI: Yup.string().required('Required!'),
+        dateI: Yup.string().required('Required'),
+        facebookI: Yup.lazy(() =>
+          Yup.number()
+            .typeError('you must specify a number')
+            .min(0, 'Min value 0.')
+            .max(500, 'Max value 500.')
+            .when(['youtubeI', 'otherI'], {
+              is: (youtubeI, otherI) => !youtubeI && !otherI,
+              then: Yup.number().required('enter facebook or youtube')
+            })
+        ),
+        youtubeI: Yup.lazy(() =>
+          Yup.number()
+            .typeError('you must specify a number')
+            .min(0, 'Min value 0.')
+            .max(500, 'Max value 500.')
+            .when(['facebookI', 'otherI'], {
+              is: (facebookI, otherI) => !facebookI && !otherI,
+              then: Yup.number().required('enter facebook or youtube')
+            })
+        ),
+        otherI: Yup.lazy(() =>
+          Yup.number()
+            .typeError('you must specify a number')
+            .min(0, 'Min value 0.')
+            .max(500, 'Max value 500.')
+            .when(['facebookI', 'youtubeI'], {
+              is: (facebookI, youtubeI) => !facebookI && !youtubeI,
+              then: Yup.number().required('enter facebook or youtube')
+            })
+        )
+      },
+      [
+        ['youtubeI', 'facebookI'],
+        ['youtubeI', 'otherI'],
+        ['facebookI', 'otherI']
+      ]
+    ),
+    onSubmit: (initData) => {
+      if (initData.facebookI == '') {
+        initData.facebookI = '0';
       }
+      if (initData.youtubeI == '') {
+        initData.youtubeI = '0';
+      }
+      if (initData.otherI == '') {
+        initData.otherI = '0';
+      }
+      const totalI =
+        parseInt(initData.youtubeI) + parseInt(initData.facebookI) + parseInt(initData.otherI);
+      const newUsedTimeData = {
+        userName: initData.userNameI,
+        oSName: initData.oSNameI,
+        date: initData.dateI,
+        useTimeNumber: totalI,
+        facebookTimeUse: parseInt(initData.facebookI),
+        youtubeTimeUse: parseInt(initData.youtubeI),
+        other: parseInt(initData.otherI)
+      };
+      if (typeModal === 'Add') {
+        dispatch(postData(newUsedTimeData));
+        initData.userNameI = '';
+        initData.oSNameI = '';
+        initData.facebookI = '';
+        initData.youtubeI = '';
+        initData.otherI = '';
+      }
+      if (typeModal === 'Edit') {
+        dispatch(putData([newUsedTimeData, positonEdit]));
+      }
+      onHide();
+      notifyS();
     }
   });
-  console.log('variables', variables);
+
   return (
     <div className="modalShowTable">
       <ToastContainer />
@@ -187,13 +205,8 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
                 <div className="modal-text-title">Youtube</div>
                 <input
                   className={
-                    formik.touched.youtubeI &&
-                    formik.errors.youtubeI &&
-                    formik.touched.facebookI &&
-                    formik.errors.facebookI &&
-                    formik.touched.otherI &&
-                    formik.errors.otherI &&
-                    errorNumber
+                    (formik.touched.youtubeI && formik.errors.youtubeI) ||
+                    (formik.touched.facebookI && formik.errors.facebookI)
                       ? 'modal-text-input error-input'
                       : 'modal-text-input'
                   }
@@ -213,13 +226,8 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
                 <div className="modal-text-title">Facebook</div>
                 <input
                   className={
-                    formik.touched.youtubeI &&
-                    formik.errors.youtubeI &&
-                    formik.touched.facebookI &&
-                    formik.errors.facebookI &&
-                    formik.touched.otherI &&
-                    formik.errors.otherI &&
-                    errorNumber
+                    (formik.touched.youtubeI && formik.errors.youtubeI) ||
+                    (formik.touched.facebookI && formik.errors.facebookI)
                       ? 'modal-text-input error-input'
                       : 'modal-text-input'
                   }
@@ -238,13 +246,7 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
                 <div className="modal-text-title">Other</div>
                 <input
                   className={
-                    formik.touched.youtubeI &&
-                    formik.errors.youtubeI &&
-                    formik.touched.facebookI &&
-                    formik.errors.facebookI &&
-                    formik.touched.otherI &&
-                    formik.errors.otherI &&
-                    errorNumber
+                    formik.touched.otherI && formik.errors.otherI
                       ? 'modal-text-input error-input'
                       : 'modal-text-input'
                   }
