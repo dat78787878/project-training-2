@@ -86,40 +86,36 @@ const ModalTable = ({ show, setShow, typeModal, positonEdit, usedTimeData, setTy
             })
         )
       },
-      [
-        ['youtubeI', 'facebookI'],
-        ['youtubeI', 'otherI'],
-        ['facebookI', 'otherI']
-      ]
+      ['youtubeI', 'facebookI', 'otherI']
     ),
-    onSubmit: (initData) => {
-      if (initData.facebookI == '') {
-        initData.facebookI = '0';
+    onSubmit: (values) => {
+      if (values.facebookI == '') {
+        values.facebookI = '0';
       }
-      if (initData.youtubeI == '') {
-        initData.youtubeI = '0';
+      if (values.youtubeI == '') {
+        values.youtubeI = '0';
       }
-      if (initData.otherI == '') {
-        initData.otherI = '0';
+      if (values.otherI == '') {
+        values.otherI = '0';
       }
       const totalI =
-        parseInt(initData.youtubeI) + parseInt(initData.facebookI) + parseInt(initData.otherI);
+        parseInt(values.youtubeI) + parseInt(values.facebookI) + parseInt(values.otherI);
       const newUsedTimeData = {
-        userName: initData.userNameI,
-        oSName: initData.oSNameI,
-        date: initData.dateI,
+        userName: values.userNameI,
+        oSName: values.oSNameI,
+        date: values.dateI,
         useTimeNumber: totalI,
-        facebookTimeUse: parseInt(initData.facebookI),
-        youtubeTimeUse: parseInt(initData.youtubeI),
-        other: parseInt(initData.otherI)
+        facebookTimeUse: parseInt(values.facebookI),
+        youtubeTimeUse: parseInt(values.youtubeI),
+        other: parseInt(values.otherI)
       };
       if (typeModal === 'Add') {
         dispatch(postData(newUsedTimeData));
-        initData.userNameI = '';
-        initData.oSNameI = '';
-        initData.facebookI = '';
-        initData.youtubeI = '';
-        initData.otherI = '';
+        values.userNameI = '';
+        values.oSNameI = '';
+        values.facebookI = '';
+        values.youtubeI = '';
+        values.otherI = '';
       }
       if (typeModal === 'Edit') {
         dispatch(putData([newUsedTimeData, positonEdit]));
