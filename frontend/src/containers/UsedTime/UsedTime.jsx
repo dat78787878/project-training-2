@@ -192,6 +192,7 @@ const UsedTime = () => {
         typeModal={typeModal}
         positonEdit={positonEdit}
         usedTimeData={usedTimeData}
+        setTypeModal={setTypeModal}
       />
       <Menu page={page} sort={sort} search={search} date={date} type={type} />
       <div className=" padding-title">

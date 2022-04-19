@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = 8000;
-const host = "192.168.50.133";
+const host = "localhost";
 const moment = require("moment");
 const bodyParser = require("body-parser");
 app.use(cors());

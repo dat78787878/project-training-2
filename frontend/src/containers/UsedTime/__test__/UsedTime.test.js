@@ -144,8 +144,8 @@ describe('UsedTime', () => {
     fireEvent.click(inputFilter);
 
     const inputFilter1 = screen.getByTestId('UserNameI');
-    fireEvent.change(inputFilter1, { target: { value: '1234567' } });
-    expect(inputFilter1.value).toEqual('1234567');
+    fireEvent.change(inputFilter1, { target: { value: '123456789' } });
+    expect(inputFilter1.value).toEqual('123456789');
 
     const inputFilter2 = screen.getByTestId('OSNameI');
     fireEvent.change(inputFilter2, { target: { value: 'iOS' } });
@@ -156,15 +156,15 @@ describe('UsedTime', () => {
     expect(inputFilter3.value).toEqual('2022-04-13');
 
     const inputFilter4 = screen.getByTestId('YouTubeI');
-    fireEvent.change(inputFilter4, { target: { value: 12 } });
+    fireEvent.change(inputFilter4, { target: { value: '12' } });
     expect(inputFilter4.value).toEqual('12');
 
     const inputFilter5 = screen.getByTestId('FacebookI');
-    fireEvent.change(inputFilter5, { target: { value: 12 } });
+    fireEvent.change(inputFilter5, { target: { value: '12' } });
     expect(inputFilter5.value).toEqual('12');
 
     const inputFilter6 = screen.getByTestId('OtherI');
-    fireEvent.change(inputFilter6, { target: { value: 12 } });
+    fireEvent.change(inputFilter6, { target: { value: '12' } });
     expect(inputFilter6.value).toEqual('12');
 
     const inputFilter7 = screen.getByTestId('btnOK');
@@ -183,23 +183,23 @@ describe('UsedTime', () => {
     fireEvent.click(inputFilter);
 
     const inputFilter1 = screen.getByTestId('UserNameI');
-    fireEvent.change(inputFilter1, { target: { value: '1234567' } });
-    expect(inputFilter1.value).toEqual('1234567');
+    fireEvent.change(inputFilter1, { target: { value: '123456789' } });
+    expect(inputFilter1.value).toEqual('123456789');
 
     const inputFilter3 = screen.getByTestId('DateI');
     fireEvent.change(inputFilter3, { target: { value: '2022-04-13' } });
     expect(inputFilter3.value).toEqual('2022-04-13');
 
     const inputFilter4 = screen.getByTestId('YouTubeI');
-    fireEvent.change(inputFilter4, { target: { value: 12 } });
+    fireEvent.change(inputFilter4, { target: { value: '12' } });
     expect(inputFilter4.value).toEqual('12');
 
     const inputFilter5 = screen.getByTestId('FacebookI');
-    fireEvent.change(inputFilter5, { target: { value: 12 } });
+    fireEvent.change(inputFilter5, { target: { value: '12' } });
     expect(inputFilter5.value).toEqual('12');
 
     const inputFilter6 = screen.getByTestId('OtherI');
-    fireEvent.change(inputFilter6, { target: { value: 12 } });
+    fireEvent.change(inputFilter6, { target: { value: '12' } });
     expect(inputFilter6.value).toEqual('12');
 
     const inputFilter7 = screen.getByTestId('btnOK');
