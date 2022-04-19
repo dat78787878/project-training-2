@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
 const Filter = ({
@@ -10,7 +10,9 @@ const Filter = ({
   type,
   setSearch,
   setDate,
-  setType
+  setType,
+  setShow,
+  setTypeModal
 }) => {
   const listOS = ['Android', 'iOS'];
 
@@ -28,6 +30,10 @@ const Filter = ({
   const handleChange = (e) => {
     e.preventDefault();
     setDate(e.target.value);
+  };
+  const handleShowModal = () => {
+    setShow(true);
+    setTypeModal('Add');
   };
 
   return (
@@ -68,6 +74,16 @@ const Filter = ({
               );
             })}
           </Form.Select>
+        </Col>
+        <Col>
+          <Button
+            variant="success"
+            data-testid="add-button"
+            aria-label="button-name"
+            className=""
+            onClick={handleShowModal}>
+            Add
+          </Button>
         </Col>
       </Row>
     </div>
